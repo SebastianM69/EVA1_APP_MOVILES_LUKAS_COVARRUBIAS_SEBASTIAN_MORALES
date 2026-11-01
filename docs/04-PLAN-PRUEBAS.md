@@ -308,4 +308,4 @@ El enunciado escrito exige una carpeta comprimida en ZIP, capturas y un informe 
 
 ---
 
-**Siguiente etapa:** CP-15 y CP-09 verificados en emulador `emulator-5554` (2026-11-01): CP-15 muestra «No encontramos esta tarea» y «Volver a mis tareas»; CP-09 cambia Pendiente ↔ Completada con contador actualizado. Pendiente: CP-MOV-02 (fuente 130 % probada solo en lista, formulario no verificado porque Expo Go se cerró al cambiar la escala), TalkBack y revisión humana de EV-12/13/14.
+**Siguiente etapa:** CP-15, CP-09 y CP-MOV-02 verificados en emulador `emulator-5554` (2026-11-01): CP-15 muestra «No encontramos esta tarea» y «Volver a mis tareas»; CP-09 cambia Pendiente ↔ Completada con contador actualizado; CP-MOV-02 con fuente 130 % muestra lista y formulario completos sin cortes (`docs/evidencias/capturas/CP-MOV-02-fuente-130-formulario.png`). Pendiente: TalkBack (CP-MOV-06), recorrido humano (CP-MOV-09) y revisión humana de EV-12/13/14.
