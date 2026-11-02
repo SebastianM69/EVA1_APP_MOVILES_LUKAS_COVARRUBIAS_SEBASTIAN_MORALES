@@ -114,7 +114,7 @@ Android (AVD Android 16 / API 36, Expo Go; CHK-017): CP-UX-01, CP-UX-02 y CP-UX-
 
 - **Tareas solo en memoria:** se pierden al cerrar o reiniciar la app. Persistencia, cuentas y backend quedan fuera de la Unidad 1.
 - **`npm run format:check` falla** en el commit `aae31d5` (22 archivos según el registro previo) y en el árbol de trabajo actual (CHK-027; 3 archivos de `src/`: `src/app/index.tsx`, `src/features/tasks/components/TaskForm.tsx`, `TaskForm.test.tsx`). No se ha corregido.
-- **Pruebas Android parciales:** CP-12 (teclado físico) NO VERIFICABLE en emulador; capturas EV-12/13/14 pendientes de revisión humana. CP-MOV-06, CP-MOV-08 y CP-MOV-09 registrados por el revisor en CHK-026. Estado en la [Bitácora](./docs/05-BITACORA.md).
+- **Pruebas Android parciales:** CP-12 (teclado físico) NO VERIFICABLE en emulador, descartado por el usuario (CHK-028). Capturas de EV-12/13/14 y copias de `%TEMP%` revisadas por el usuario (CHK-028). CP-MOV-06, CP-MOV-08 y CP-MOV-09 registrados por el revisor en CHK-026. Estado en la [Bitácora](./docs/05-BITACORA.md).
 - **iOS:** no verificado.
 - **Estado del repositorio:** `EditTaskRoute.test.tsx` no existe en el repositorio (eliminado en CHK-023). Los conteos de pruebas corresponden a 4 suites / 12 pruebas.
 
@@ -126,4 +126,4 @@ Android (AVD Android 16 / API 36, Expo Go; CHK-017): CP-UX-01, CP-UX-02 y CP-UX-
 
 ## 10. Entrega académica
 
-Pendiente de preparación. Incluirá el repositorio Git, el informe académico y las capturas de ejecución y pruebas, según las instrucciones del docente. Fecha y modalidad de entrega aún por confirmar.
+Incluirá el repositorio Git (rama `chore/mobile-bootstrap`, sincronizada con `origin`), el informe académico y las capturas de ejecución y pruebas, según las instrucciones del docente.

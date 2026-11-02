@@ -579,15 +579,10 @@ Al añadir un nuevo checkpoint `CHK-###`, mantener como mínimo:
 
 Si se necesita reconstruir un estado anterior, **no** usar operaciones destructivas Git sin autorización. La bitácora es la narración verificable; Git guarda versiones. No son equivalentes.
 
-## 8. Handoff a harness externo — pendiente de ejecución
+## 8. Handoff a harness externo — entrega cerrada
 
-**Estado vigente:** G0 `APROBADO`; G1 `VALIDACIÓN PARCIAL`. Último checkpoint: `CHK-022` (revisión humana confirmada por el usuario de las capturas de `docs/evidencias/capturas/`: `ACEPTADA` visual; procedencia `NO VERIFICADO`; nombre del revisor pendiente). Anterior: `CHK-021` (copia de 46 capturas de `%TEMP%` como `OBTENIDA PENDIENTE DE REVISIÓN`; commit local de documentación sin `push` y sin cambios en `src/`). `CHK-019` registra CP-15 observado en AVD con identificador inexistente, CP-UX-02 desde Cancelar, CP-UX-05 toast al agregar y CP-UX-03 con fuente 130 % observados. Jest: `npx jest` 5 suites / 14 PASS (CHK-021). `CHK-014` configura ESLint 9.39.5 y Prettier 3.9.10 con lint/format PASS según su registro; no re-ejecutados en CHK-021. `CHK-013` mantiene la validación de instalación limpia previa. Context7 no disponible en este harness (`CONTEXT7_NO_DISPONIBLE`); el usuario autorizó fuentes oficiales para resolver el peer conflict.
+**Estado vigente:** G0 `APROBADO`; G1 `VALIDACIÓN PARCIAL`. Último checkpoint: `CHK-028` (revisión humana de capturas por el usuario: «están ok»; decisiones de alcance y push a `origin`). Anterior: `CHK-022` (revisión humana de capturas de `docs/evidencias/capturas/`: `ACEPTADA` visual; procedencia `NO VERIFICADO`; nombre del revisor pendiente). `CHK-021` (copia de 46 capturas de `%TEMP%` como `OBTENIDA PENDIENTE DE REVISIÓN`). `CHK-019` registra CP-15 observado en AVD con identificador inexistente, CP-UX-02 desde Cancelar, CP-UX-05 toast al agregar y CP-UX-03 con fuente 130 % observados. Jest: `npx jest` 4 suites / 12 PASS (CHK-027). `CHK-014` configura ESLint 9.39.5 y Prettier 3.9.10; `format:check` FAIL en CHK-027, aceptado por el usuario en CHK-028. `CHK-013` mantiene la validación de instalación limpia previa. Context7 no disponible en este harness (`CONTEXT7_NO_DISPONIBLE`); el usuario autorizó fuentes oficiales para resolver el peer conflict.
 
-**Secuencia de continuación:**
-
-1. CP-15 observado en AVD (CHK-019). Pendiente: CP-UX-02 «sin cambios» sin alerta y desenlace de «Seguir editando»/«Descartar cambios» desde Cancelar; no resetear el emulador. CP-09 ya observado en CHK-010; repetir solo tras cambios en la app. CP-MOV-02 observado con fuente 130 % (revisión humana pendiente).
-2. Completar TalkBack/recorrido humano y revisar EV-12/13/14 antes de cerrar GA-4/G4.
-3. ESLint/Prettier configurados (`CHK-014`). Tras `npm ci` en la raíz, repetir `npm run lint` y `npm run format:check`; no actualizar a ESLint 10 sin verificar `eslint-config-expo`.
-4. Mantener `react-dom@19.3.0` alineado con React `19.3.0`; no usar `--force` ni `--legacy-peer-deps`.
-
+**Cierre (CHK-028):** sin pendientes de entrega. Decisiones del usuario: capturas revisadas («están ok»); `format:check` FAIL aceptado sin corregir; CP-15 sin test versionado; CP-UX-02 «sin cambios» y CP-12 descartados. Para trabajo futuro, `ESLint 10` no se actualiza sin verificar `eslint-config-expo`, y `react-dom@19.3.0` se mantiene alineado con React `19.3.0` (sin `--force` ni `--legacy-peer-deps`).
 `ERR-01-expo-update-failed.png` registra el fallo temporal durante la prueba de escala; `CHK-012` recoge el reporte posterior de funcionamiento y `CHK-013` la resolución de `npm ci`.
+
