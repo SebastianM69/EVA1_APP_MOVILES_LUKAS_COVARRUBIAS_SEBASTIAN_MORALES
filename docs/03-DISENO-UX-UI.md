@@ -304,6 +304,6 @@ No se asignan puntos por adelantado: la matriz representa un **plan de evidencia
 - [x] Cerrar P-UX-01 a P-UX-06 y P-01 sin incorporar nuevas bibliotecas ni funcionalidades.
 - [x] Correspondencia revisada en el repositorio real y G0 aprobado; falta validar visualmente en Android.
 
-**Estado de ejecución:** lista, formulario, validación, CRUD, filtros y estados implementados. Pruebas automatizadas y TypeScript pasan. Android: pruebas parciales con capturas en `docs/evidencias/capturas/` y en la carpeta temporal del equipo (CHK-010 a CHK-017); revisión humana pendiente.
+**Estado de ejecución:** lista, formulario, validación, CRUD, filtros y estados implementados. Pruebas automatizadas y TypeScript pasan. Android: pruebas parciales con capturas en `docs/evidencias/capturas/` y en la carpeta temporal del equipo (CHK-010 a CHK-019); revisión humana pendiente.
 
-**Siguiente etapa:** ejecutar CP-15 en Android, TalkBack, teclado (CP-MOV-08/CP-12) y recorrido humano; registrar evidencia auténtica y revisión humana en el plan de pruebas.
+**Siguiente etapa:** TalkBack (CP-MOV-06), teclado (CP-MOV-08/CP-12), recorrido humano (CP-MOV-09) y CP-UX-02 «sin cambios» sin alerta; registrar evidencia auténtica y revisión humana en el plan de pruebas.

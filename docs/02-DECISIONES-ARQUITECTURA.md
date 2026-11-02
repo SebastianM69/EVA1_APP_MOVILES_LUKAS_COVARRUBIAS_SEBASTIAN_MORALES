@@ -31,7 +31,7 @@ La presente especificación deriva de las siete decisiones acordadas para la Uni
 | D-06 | Calidad | **B — Equilibrada y verificable** | APROBADA | TypeScript, ESLint, Prettier, Jest/Testing Library y pruebas manuales Android. |
 | D-07 | Documentación | **B — Estructurada y controlada** | APROBADA | Siete documentos `.md`, gobernanza agéntica, checkpoints y trazabilidad Git. |
 
-**Fundamento de D-01:** el docente otorgó libertad para escoger el stack. La comparación técnica y profesional completa entre Ionic y React Native está en [requisitos y rúbrica](./01-REQUISITOS-RUBRICA.md). El stack y las versiones seleccionadas están en `package.json` y `package-lock.json`; el estado operativo vigente se registra en `CHK-013`.
+**Fundamento de D-01:** el docente otorgó libertad para escoger el stack. La comparación técnica y profesional completa entre Ionic y React Native está en [requisitos y rúbrica](./01-REQUISITOS-RUBRICA.md). El stack y las versiones seleccionadas están en `package.json` y `package-lock.json`; el estado operativo vigente se registra en `CHK-021`.
 
 ## 3. Stack y responsabilidades
 
@@ -97,7 +97,7 @@ El árbol siguiente es una **propuesta**, no representa archivos existentes. Est
 │   ├── 03-DISENO-UX-UI.md            (documentado)
 │   ├── 04-PLAN-PRUEBAS.md            (documentado)
 │   └── 05-BITACORA.md                (documentado)
-├── src/                              (pendiente)
+├── src/                              (implementado)
 │   ├── app/
 │   │   ├── _layout.tsx
 │   │   ├── index.tsx
@@ -114,7 +114,7 @@ El árbol siguiente es una **propuesta**, no representa archivos existentes. Est
 │   ├── shared/                        (solo si hay reutilización real)
 │   └── theme/
 ├── assets/                            (según la plantilla)
-└── package.json / package-lock.json  (pendientes)
+└── package.json / package-lock.json  (presentes)
 ```
 
 No se deben crear carpetas vacías «por previsión». La distribución podrá adaptarse a una plantilla Expo oficial, pero sin trasladar lógica de funcionalidades dentro de los archivos que Expo Router trata como rutas. El directorio `../src/app/` está reservado para navegación y páginas; sus componentes no relacionados con rutas pertenecen fuera de él.
@@ -273,7 +273,7 @@ No crear interfaces de repositorio, servicios de red, pantallas de acceso ni esq
 - [x] Decisiones técnicas y de UX consolidadas por instrucción del equipo.
 - [x] Gate académico G0 aprobado para la línea base dentro del repositorio local.
 
-**Estado actual:** proyecto SDK 58 en `chore/mobile-bootstrap`. `npm ci` en copia limpia, 4 suites / 12 pruebas, TypeScript y `expo install --check` PASS tras alinear `react-dom@19.3.0`. Validación Android parcial; el usuario reporta la app funcionando y no se revalidó. EV pendientes de revisión humana. No hay commits ni publicación.
+**Estado actual:** proyecto SDK 58 en `chore/mobile-bootstrap` con 4 commits locales (último `a461246`) y cambios sin commit. `npm ci` limpio (CHK-013); Jest 5 suites / 14 pruebas PASS (CHK-018); TypeScript y `expo install --check` PASS tras alinear `react-dom@19.3.0`. Validación Android parcial (CHK-010 a CHK-019); EV pendientes de revisión humana. Sin remoto configurado; no hay publicación.
 
 ## 13. Referencias técnicas consultadas
 

@@ -150,7 +150,7 @@ Una funcionalidad se considerará **aceptable** únicamente cuando el resultado 
 | CA-12 | Crear varias tareas y operar sobre una no altera datos ni estados de las restantes. |
 | CA-13 | Las listas vacías por filtro y los errores de formulario muestran textos claros y no confunden al usuario. |
 
-**Casos de prueba especificados:** `CP-01` a `CP-16`, además de casos UX, técnicos, Android y `CP-DOC-01`, se encuentran en [plan de pruebas](./04-PLAN-PRUEBAS.md). La ejecución parcial está registrada en el plan (§4.1) y en la [bitácora](./05-BITACORA.md) (CHK-010 a CHK-018). Las capturas están en `docs/evidencias/capturas/`; su revisión humana sigue pendiente.
+**Casos de prueba especificados:** `CP-01` a `CP-16`, además de casos UX, técnicos, Android y `CP-DOC-01`, se encuentran en [plan de pruebas](./04-PLAN-PRUEBAS.md). La ejecución parcial está registrada en el plan (§4.1) y en la [bitácora](./05-BITACORA.md) (CHK-010 a CHK-019). Las capturas están en `docs/evidencias/capturas/`; su revisión humana sigue pendiente.
 
 ## 5. Requisitos no funcionales y restricciones
 
@@ -167,7 +167,7 @@ Una funcionalidad se considerará **aceptable** únicamente cuando el resultado 
 | RNF-09 | Repositorio Git portable: rutas documentales relativas, sin secretos y con dependencias reproducibles. | [D], entrega Git comunicada por el equipo. | Comprobación desde una copia limpia del repositorio. |
 | RNF-10 | Documentación que explique el framework, sus patrones, sus componentes y la usabilidad con ejemplos del proyecto. | [R] y [E]. | Matriz de trazabilidad académica completa. |
 
-Las versiones exactas de Expo/React Native y la modalidad de Android (teléfono físico, emulador u otra) **siguen pendientes de verificación**. No corresponde fijarlas en este documento sin validar compatibilidad y disponibilidad.
+Las versiones de Expo/React Native quedaron verificadas con `npm ci` y `expo install --check` (CHK-013). La modalidad Android usada es emulador AVD; el teléfono físico **sigue sin verificar**. No corresponde fijar versiones en este documento sin validar compatibilidad.
 
 ## 6. Pantallas y componentes previstos
 
@@ -282,4 +282,4 @@ Se considerará que **la aplicación**, más adelante, puede proponerse para cie
 2. **Rúbrica evaluación unidad 1**, *Desarrollo de aplicaciones móviles*, 4 páginas. En particular: niveles y framework (p. 1); patrones y UI (p. 2); componentes, usabilidad y 100 puntos (p. 3); escala de notas (p. 4).
 3. **Decisiones del equipo durante la planificación**: siete alternativas aprobadas, libertad de elección tecnológica comunicada por el docente y regla de documentación portable en Git. Se identifican siempre con **[D]**.
 
-> **Punto de continuación:** G0 está APROBADO; el scaffold SDK 58 y la lógica inicial existen. `npm ci` limpio, Jest (4/12), TypeScript y Expo dependency check pasan. Completar G1 con lint/format y pruebas Android/revisión humana; continuar CP/RF/RUB y evidencias antes del cierre.
+> **Punto de continuación:** G0 está APROBADO; el scaffold SDK 58 y la lógica inicial existen. `npm ci` limpio, Jest (5 suites / 14 pruebas, CHK-018), TypeScript y Expo dependency check pasan; ESLint/Prettier configurados (CHK-014). Completar G1 con pruebas Android (TalkBack, teclado, recorrido humano) y revisión humana de evidencias; continuar CP/RF/RUB antes del cierre.

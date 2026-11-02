@@ -4,7 +4,7 @@
 > **Versión documental:** 1.0 — cierre P-01/P-UX y checkpoint CHK-004 de consolidación  
 > **Fecha:** 2026-11-01  
 > **Tipo de registro:** planificación documental hasta CHK-004; registros de ejecución Android y Jest desde CHK-010 (ver §5). No sustituye la revisión humana de las evidencias.
-> **Entorno futuro previsto:** harness externo con agente denominado por el equipo «GPT-6 Luna» (capacidades todavía no verificadas).
+> **Entorno de ejecución:** OMP en Windows con AVD `emulator-5554` (Android 16 / API 36) y Expo Go (CHK-010 a CHK-019). Harness externo con agente denominado «GPT-6 Luna»: **NO VERIFICADO**.
 
 ## 1. Propósito y fuentes
 
@@ -31,11 +31,11 @@ El [README](../README.md) describe el proyecto Expo real; su estado de validaci�
 | Evidencias visuales B híbridas | **APROBADAS**; obtención parcial | Capturas Android reales por agente si dispone de acceso; si no, captura manual; revisión humana obligatoria. EV-12/13/14 y capturas CP-UX obtenidas desde el AVD (CHK-010 a CHK-017); revisión humana pendiente. |
 | Documentos `01` a `04` | **CONSOLIDADOS** | Decisiones cerradas; G0 requiere revisión y autorización dentro del repositorio real. |
 | `AGENTS.md` | **CONSOLIDADO PARA HARNESS EXTERNO** | Aún debe incorporarse y verificarse en el repositorio real. |
-| Este archivo `05-BITACORA.md` | **CONSOLIDADO** | Último checkpoint vigente: `CHK-018`; anteriores históricos. |
-| `README.md` | **CONSOLIDADO** | Instalación validada en CHK-013 (`npm ci`); ejecución Android parcial (CHK-010 a CHK-017). |
+| Este archivo `05-BITACORA.md` | **CONSOLIDADO** | Último checkpoint vigente: `CHK-021`; anteriores históricos. |
+| `README.md` | **CONSOLIDADO** | Instalación validada en CHK-013 (`npm ci`); ejecución Android parcial (CHK-010 a CHK-019). |
 | Proyecto Expo y código móvil | **CREADO** (estado del checkpoint inicial, superado) | Implementación autorizada; registros en CHK-005 a CHK-017. |
-| Pruebas automáticas y Android | **PARCIAL** (estado del checkpoint inicial: NO EJECUTADAS, superado) | Jest 4 suites / 12 PASS (CHK-013); suite completa `npx jest` 5 suites / 14 PASS (CHK-018); Android parcial (CHK-010 a CHK-017); CP-15 y CP-09 con Jest 2 suites / 7 PASS (CHK-018). |
-| Git, rama, commit y remoto del trabajo | **VERIFICADO PARCIALMENTE** | Rama `chore/mobile-bootstrap`; `git status` de CHK-018 muestra cambios sin commit. Commits y remoto: ver CHK-005/CHK-007 y CHK-018. |
+| Pruebas automáticas y Android | **PARCIAL** (estado del checkpoint inicial: NO EJECUTADAS, superado) | Jest 4 suites / 12 PASS (CHK-013); suite completa `npx jest` 5 suites / 14 PASS (CHK-018); Android parcial (CHK-010 a CHK-019); CP-15 y CP-09 con Jest 2 suites / 7 PASS (CHK-018); CP-15 observado en AVD con identificador inexistente (CHK-019). |
+| Git, rama, commit y remoto del trabajo | **VERIFICADO PARCIALMENTE** | Rama `chore/mobile-bootstrap`; 4 commits locales (último `a461246`); sin remoto (`git remote -v` vacío); cambios sin commit en `AGENTS.md`, `README.md`, `docs/` (01, 04, 05), `src/` y `EditTaskRoute.test.tsx` sin seguimiento (verificado 2026-11-01). |
 | Configuración del harness externo | **NO VERIFICADA** | No asumir terminal, acceso a repositorio, Context7 ni Android. |
 | Gate académico G0 | **APROBADO** (estado vigente en 04 §10) | Estado del checkpoint inicial: PENDIENTE; superado tras revisión documental y autorización humana. |
 
@@ -88,11 +88,11 @@ El profesor permitió la elección del stack. Se seleccionó React Native por un
 | EV-ENV | Revisar evidencias auténticas EV-01 a EV-14 (faltan EV-06, EV-07 y EV-10; ver plan §8.2); registrar procedencia y rutas relativas. | Equipo + agente | GA-4 / G4 |
 | G0 | Obtener **aprobación humana expresa** para iniciar código, después de comprobar la documentación en el repositorio y el preflight. | Equipo | Inicio de implementación |
 
-Estado inicial (CHK-004): evidencias visuales `NO OBTENIDA`. Estado posterior: ver §5 (CHK-010 a CHK-018).
+Estado inicial (CHK-004): evidencias visuales `NO OBTENIDA`. Estado posterior: ver §5 (CHK-010 a CHK-019).
 
 ## 5. Checkpoints
 
-Los CHK-001 a CHK-003 se conservan como **registros históricos**; las referencias a decisiones pendientes en esos checkpoints reflejan su estado en el momento de emisión. El estado vigente es el del **CHK-018**; la sección 4 conserva las verificaciones de origen.
+Los CHK-001 a CHK-003 se conservan como **registros históricos**; las referencias a decisiones pendientes en esos checkpoints reflejan su estado en el momento de emisión. El estado vigente es el del **CHK-019**; la sección 4 conserva las verificaciones de origen.
 
 ### CHK-001 — Cierre de gobernanza y preparación de harness externo
 
@@ -395,6 +395,56 @@ No se declara que el código o los comandos de instalación funcionen. Este chec
 | Decisiones pendientes del usuario | (a) Copiar capturas de %TEMP% a `docs/evidencias/capturas/` (no ejecutado: requiere revisión y procedencia). (b) Commit local de la documentación (no ejecutado; sin `push`). |
 | Siguiente acción | Continuar con README y verificación de enlaces relativos; luego decisiones (a) y (b). |
 
+### CHK-019 — Casos UX y CP-15 en AVD; reconciliación documental
+
+| Campo | Valor |
+|---|---|
+| Identificador | `CHK-019` |
+| Fecha y objetivo | 2026-11-01. Registrar en AVD CP-15 (identificador inexistente), Cancelar con borrador (CP-UX-02), toast al agregar (CP-UX-05) y CP-UX-03 con fuente 130 %; reconciliar `docs/` y `README.md` con esas evidencias. |
+| Entorno/autor | OMP en Windows; AVD `emulator-5554` con Expo Go; repositorio `EVA1_AP_MOVILES_LUKAS COVARRUBIAS_SEBASTIAN_MORALES`. |
+| Estado | `VALIDACIÓN PARCIAL` |
+| Pruebas ejecutadas | Jest reejecutado: `EditTaskRoute.test.tsx` y `tasks-reducer.test.ts`, 2 suites / 7 pruebas PASS (sin cambios en código). Pruebas manuales en AVD; capturas en `%TEMP%` del equipo, no versionadas. |
+| Resultados | CP-15 en AVD con identificador inexistente: «No encontramos esta tarea» y «Volver a mis tareas», sin formulario (`cp15-id-inexistente.png`). CP-UX-02: con borrador modificado, Cancelar muestra «Descartar cambios» («Tienes cambios sin guardar. ¿Quieres descartarlos?»; «SEGUIR EDITANDO» / «DESCARTAR CAMBIOS») (`cp-ux02-cancelar.png`); desenlace de los botones no registrado. CP-UX-05: «Tarea agregada» tras crear una tarea (`cp-ux05-toast-agregar.png`). CP-UX-03: «Editar» y «Eliminar» visibles en tarjeta con fuente 130 % (`cpux03-tarjeta-130.png`); fuente de sistema máxima no probada. |
+| Incidencias | Ninguna nueva. |
+| Documentación corregida | `04-PLAN-PRUEBAS.md`: §3.1, §4.1 (CP-UX-02, CP-UX-03, CP-UX-05), §10 (G3), «Siguiente etapa» y estado actual. `README.md`: resultados, estado y siguiente paso. `AGENTS.md`: §12 (G1). `01-REQUISITOS-RUBRICA.md`: nota de casos de prueba. Búsqueda de rutas absolutas del equipo en `docs/`, `README.md` y `AGENTS.md`: sin coincidencias. |
+| Git | NO VERIFICADO en esta sesión. |
+| Pendientes | CP-UX-02: «sin cambios» sin alerta y desenlace de «Seguir editando»/«Descartar cambios» desde Cancelar. CP-UX-03: fuente máxima del sistema. CP-UX-05: accesibilidad (TalkBack). CP-MOV-06 (TalkBack), CP-MOV-09 (recorrido humano), CP-MOV-08/CP-12 (teclado; CP-12 NO VERIFICABLE en emulador); revisión humana de EV-12/13/14 y capturas CP-UX. |
+| Decisiones pendientes del usuario | (a) Copiar capturas de %TEMP% a `docs/evidencias/capturas/` (no ejecutado: requiere revisión y procedencia). (b) Commit local de la documentación (no ejecutado; sin `push`). |
+| Siguiente acción | Commit local solo si el usuario lo aprueba; resto de pendientes en §4.1 del plan. |
+
+### CHK-020 — Auditoría documental y verificación de estado real
+
+| Campo | Valor |
+|---|---|
+| Identificador | `CHK-020` |
+| Fecha y objetivo | 2026-11-01. Auditar `01`–`05`, `README.md` y `AGENTS.md` contra evidencia real: Jest, Git, rutas absolutas, enlaces relativos, matriz EV y EOL de ESLint 9. |
+| Entorno/autor | OMP en Windows; repositorio `EVA1_AP_MOVILES_LUKAS COVARRUBIAS_SEBASTIAN_MORALES`. Sin AVD ni Expo Go en este checkpoint (no se tocó el emulador). |
+| Estado | `VALIDACIÓN PARCIAL` |
+| Git | Rama `chore/mobile-bootstrap`; 4 commits locales, último `a461246`; sin remoto (`git remote -v` vacío). `git status --short`: modificados `AGENTS.md`, `README.md`, `docs/01`–`docs/05`, `src/app/index.tsx`, `src/features/tasks/components/TaskForm.tsx` y `TaskForm.test.tsx`; sin seguimiento `src/features/tasks/components/EditTaskRoute.test.tsx`. Origen de los cambios en `src/`: NO VERIFICADO. |
+| Pruebas ejecutadas | `npx jest` (suite completa): 5 suites / 14 PASS. `npx jest EditTaskRoute.test.tsx tasks-reducer.test.ts`: 2 suites / 7 PASS. No ejecutados en este checkpoint: lint, typecheck ni Android. |
+| Resultados | Búsqueda con `grep -rn` de unidad de disco Windows (letra, dos puntos y barra) y del nombre de usuario local en `docs/`, `README.md` y `AGENTS.md`: sin coincidencias tras esta corrección (verificado 2026-11-01). Enlaces relativos de `README.md`, `AGENTS.md` y `docs/*.md`: destinos `01`–`05`, `AGENTS.md` y `README.md` existen. Matriz EV (`04` §8.2): con archivo EV-01 a EV-05, EV-08, EV-09 y EV-11 a EV-14; sin archivo EV-06, EV-07 y EV-10. EOL de ESLint 9 confirmado en eslint.org (`version-support`): 2026-08-06. |
+| Incidencias | Contradicción histórica: CHK-016 registra «Sin cambios en src/» y HEAD `db2d420`; el estado Git actual muestra cambios en `src/` y HEAD `a461246`. Se conserva el checkpoint histórico sin reescribirlo; el origen de los cambios en `src/` queda pendiente de verificación. |
+| Documentación corregida | `05-BITACORA.md`: §2 (checkpoint vigente), §6 (punto de continuación), CHK-020. `02-DECISIONES-ARQUITECTURA.md` §2 (puntero a CHK-020). `README.md`: «Resultados actuales» (CP-UX-02 y resultados Jest de CHK-018/CHK-020). `04-PLAN-PRUEBAS.md` §10 no modificado en CHK-020. |
+| Pendientes | CP-UX-02: «sin cambios» sin alerta y desenlace de los botones desde Cancelar. CP-UX-03: fuente máxima del sistema. CP-UX-05: TalkBack. CP-MOV-06 (TalkBack), CP-MOV-09 (recorrido humano), CP-MOV-08/CP-12 (teclado; CP-12 NO VERIFICABLE en emulador). Revisión humana de EV-12/13/14 y capturas CP-UX. |
+| Decisiones pendientes del usuario | (a) Copiar capturas de %TEMP% a `docs/evidencias/capturas/` (no ejecutado: requiere revisión y procedencia). (b) Revisar los cambios en `src/` antes de cualquier commit. (c) Commit local de la documentación (no ejecutado; sin `push`). |
+| Siguiente acción | Esperar decisiones (a)–(c). Sin aprobación explícita no se copian capturas ni se hace commit. |
+
+### CHK-021 — Copia de capturas pendientes de revisión y commit local de documentación
+
+| Campo | Valor |
+|---|---|
+| Identificador | `CHK-021` |
+| Fecha y objetivo | 2026-11-01. Autorizado por el equipo: (1) copiar capturas de `%TEMP%` a `docs/evidencias/capturas/`; (2) actualizar índice y crear commit local de documentación. Sin `push`, sin `merge`, sin cambios en `src/`. |
+| Entorno/autor | OMP en Windows; repositorio `EVA1_AP_MOVILES_LUKAS COVARRUBIAS_SEBASTIAN_MORALES`. Sin AVD ni Expo Go en este checkpoint. |
+| Estado | `VALIDACIÓN PARCIAL` |
+| Git | Rama `chore/mobile-bootstrap`; HEAD previo `a461246`; sin remoto. Commit local de documentación creado en esta sesión; su hash no se registra aquí para evitar autorreferencia (ver `git log -1`). `src/app/index.tsx`, `src/features/tasks/components/TaskForm.tsx`, `TaskForm.test.tsx` y `EditTaskRoute.test.tsx` quedan sin commit; origen de los cambios en `src/`: NO VERIFICADO. |
+| Archivos y requisitos | 46 PNG nuevos en `docs/evidencias/capturas/` (32 rastreados previamente); sin renombrar ni asignar EV/CP. Cuatro nombres homónimos con contenido distinto (`CP-MOV-08-teclado-formulario.png`, `CP-MOV-08-teclado-virtual.png`, `CP-UX-05-toast-editar.png`, `CP-UX-05-toast-eliminar.png`) no copiados; originales conservados. Ocho copias byte-idénticas a originales eliminadas. Índice en `04` §8.2. |
+| Procedencia | Capturas de sesiones previas en `%TEMP%`: procedencia por archivo `NO VERIFICADO`. Originales sin manipular (solo copia). Revisión humana pendiente para todas. |
+| Pruebas | `npx jest` completo: 5 suites / 14 PASS. `EditTaskRoute.test.tsx` y `tasks-reducer.test.ts` (CP-15, CP-09): 2 suites / 7 PASS. Ejecutadas en esta sesión. Verificación de archivos: 32 rastreados, 46 nuevos, 0 hashes duplicados. Android no ejecutado en esta sesión. |
+| Incidencias | La respuesta previa indicó 54 copias nuevas; el número correcto es 46 (54 copiadas menos 8 duplicadas eliminadas). Corregido en este checkpoint. |
+| Pendientes | Revisión humana de las 46 copias, EV-12/13/14 y capturas CP-UX. Decidir si los cuatro nombres con contenido distinto se copian con sufijo o se descartan. Nomenclatura: conviven `CP-UX-*` (repo) con `cp-ux*`, `cpux*` y `EVA1-todo-*` (copias); renombrar requiere mapear cada captura a un CP. Revisar `src/` antes de cualquier commit de código. |
+| Siguiente acción | TalkBack (CP-MOV-06); recorrido humano (CP-MOV-09); CP-UX-02 desde «Seguir editando» y desde Cancelar. |
+
 ## 6. Protocolo de inicio en el harness externo
 
 El agente externo **no debe interpretar este documento como orden de programar**. En la primera sesión deberá:
@@ -404,7 +454,7 @@ El agente externo **no debe interpretar este documento como orden de programar**
 3. Verificar capacidad real para leer/escribir archivos, ejecutar terminal y Git, utilizar Context7 y probar Android, **interactuar con el dispositivo/emulador y guardar capturas originales**. Si no es posible, declarar `NO DISPONIBLE` o `NO VERIFICADO`.
 4. Comprobar rama, commit, diferencias y archivos sin seguimiento, **si Git está disponible**. No inventar identificadores.
 5. Consultar Context7 cuando la tarea técnica dependa de una biblioteca o versión, o detener esa implementación si la herramienta obligatoria falta.
-6. Contrastar el estado real con el checkpoint más reciente (actualmente `CHK-018`) y los anteriores solo como historial; enumerar bloqueos y solicitar la autorización que falte. No fusionar, publicar ni modificar historial por iniciativa propia.
+6. Contrastar el estado real con el checkpoint más reciente (actualmente `CHK-021`) y los anteriores solo como historial; enumerar bloqueos y solicitar la autorización que falte. No fusionar, publicar ni modificar historial por iniciativa propia.
 
 Se debe evitar asumir características específicas de la aplicación externa: no se ha identificado su proveedor, interfaz, sistema de permisos ni configuración concreta. El nombre de agente usado por el equipo no determina esas capacidades.
 
@@ -427,11 +477,11 @@ Si se necesita reconstruir un estado anterior, **no** usar operaciones destructi
 
 ## 8. Handoff a harness externo — pendiente de ejecución
 
-**Estado vigente:** G0 `APROBADO`; G1 `VALIDACIÓN PARCIAL`. `CHK-018` es el último checkpoint: Jest CP-15 y CP-09 PASS (2 suites / 7 pruebas). `CHK-014` configura ESLint 9.39.5 y Prettier 3.9.10; lint, `expo lint`, format, typecheck y Jest PASS en copia temporal con los manifiestos finales. `CHK-013` mantiene la validación de instalación limpia previa. Context7 no está expuesto; el usuario autorizó fuentes oficiales para este fix. El usuario reporta que la app funciona; no se revalidó ni se reseteó el AVD.
+**Estado vigente:** G0 `APROBADO`; G1 `VALIDACIÓN PARCIAL`. Último checkpoint: `CHK-021` (copia de 46 capturas de `%TEMP%` a `docs/evidencias/capturas/` como `OBTENIDA PENDIENTE DE REVISIÓN`; commit local de documentación sin `push` y sin cambios en `src/`). `CHK-019` registra CP-15 observado en AVD con identificador inexistente, CP-UX-02 desde Cancelar, CP-UX-05 toast al agregar y CP-UX-03 con fuente 130 % observados. Jest: `npx jest` 5 suites / 14 PASS (CHK-021). `CHK-014` configura ESLint 9.39.5 y Prettier 3.9.10 con lint/format PASS según su registro; no re-ejecutados en CHK-021. `CHK-013` mantiene la validación de instalación limpia previa. Context7 no disponible en este harness (`CONTEXT7_NO_DISPONIBLE`); el usuario autorizó fuentes oficiales para resolver el peer conflict.
 
 **Secuencia de continuación:**
 
-1. Ejecutar CP-15 en Android (deep link con recarga de Expo Go; borra datos en memoria) en el emulador que el usuario reporta funcionando; no resetearlo. CP-09 ya observado en CHK-010; repetir solo tras cambios en la app. CP-MOV-02 observado con fuente 130 % (revisión humana pendiente).
+1. CP-15 observado en AVD (CHK-019). Pendiente: CP-UX-02 «sin cambios» sin alerta y desenlace de «Seguir editando»/«Descartar cambios» desde Cancelar; no resetear el emulador. CP-09 ya observado en CHK-010; repetir solo tras cambios en la app. CP-MOV-02 observado con fuente 130 % (revisión humana pendiente).
 2. Completar TalkBack/recorrido humano y revisar EV-12/13/14 antes de cerrar GA-4/G4.
 3. ESLint/Prettier configurados (`CHK-014`). Tras `npm ci` en la raíz, repetir `npm run lint` y `npm run format:check`; no actualizar a ESLint 10 sin verificar `eslint-config-expo`.
 4. Mantener `react-dom@19.3.0` alineado con React `19.3.0`; no usar `--force` ni `--legacy-peer-deps`.

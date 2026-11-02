@@ -40,7 +40,7 @@ Consultar los archivos existentes usando exclusivamente referencias relativas de
 3. [Diseño UX/UI](./docs/03-DISENO-UX-UI.md): pantallas, interacción, identidad visual y accesibilidad.
 4. [Plan de pruebas](./docs/04-PLAN-PRUEBAS.md): casos de prueba, evidencias y gates del proyecto.
 
-Consultar también [bitácora y checkpoints](./docs/05-BITACORA.md) y el [README](./README.md) de instalación, alcance y orientación al evaluador. **El README está consolidado, pero sus comandos de ejecución siguen siendo condicionales** hasta que exista un proyecto Expo comprobado.
+Consultar también [bitácora y checkpoints](./docs/05-BITACORA.md) y el [README](./README.md) de instalación, alcance y orientación al evaluador. **El README está consolidado; sus comandos de instalación y prueba se ejecutaron en CHK-013 y CHK-018**, y la validación Android sigue parcial.
 
 Los PDF de evaluación son fuentes académicas de referencia, pero no se asume que estén versionados dentro del repositorio. No inventar rutas a esos PDF. La instrucción posterior del profesor, comunicada por el equipo, otorgó libertad para escoger el framework: **React Native está autorizado como decisión académica del equipo**.
 
@@ -186,7 +186,7 @@ No ejecutar validaciones irrelevantes por formalismo; **tampoco omitir** control
 5. **Alcance probatorio:** capturas muestran estados visibles; operaciones como edición o eliminación requieren secuencia antes/después u otra evidencia de ejecución. TalkBack, tamaño de zonas táctiles, accesibilidad y gestos exigen además observación manual o registro adecuado, no una imagen aislada.
 6. **Cierre:** el agente podrá preparar el índice de evidencias, pero **solo el equipo valida visualmente** que cada captura demuestra el criterio. Si falta Android, captura auténtica o revisión humana exigida, el caso/gate correspondiente continúa `NO EJECUTADO`, `BLOQUEADO` o `VALIDACIÓN PARCIAL`, según corresponda.
 
-La matriz EV-01 a EV-10 y el registro por ejecución se mantienen en el [plan de pruebas](./docs/04-PLAN-PRUEBAS.md). El agente no puede ampliar la estrategia a pruebas E2E o nuevas dependencias sin autorización.
+La matriz EV-01 a EV-14 (EV-06, EV-07 y EV-10 sin archivo) y el registro por ejecución se mantienen en el [plan de pruebas](./docs/04-PLAN-PRUEBAS.md). El agente no puede ampliar la estrategia a pruebas E2E o nuevas dependencias sin autorización.
 
 ### 8.2. Definition of Done (DoD)
 
@@ -262,6 +262,6 @@ No reportar como creado, probado, publicado o aprobado ningún elemento que no e
 
 **Gate académico G0:** `APROBADO` por el usuario para esta línea base. Expo SDK 58 / Expo Go en emulador; la matriz recomendada es Expo `~58.0.22`, React `19.3.0`, React Native `0.88.1`, Expo Router `~58.0.29`, Jest `~30.5.2`, `jest-expo` `~58.0.13` y RNTL `^14.1.0`. La selección usa la salida Context7 aportada y la plantilla SDK 58.
 
-**G1:** `VALIDACIÓN PARCIAL`: `npx jest` 5 suites / 14 pruebas PASS (2026-11-01); `npm run typecheck`, `npx expo install --check` y `npx expo export --platform android` PASS; `npm ci` limpio (CHK-013) y ESLint/Prettier (CHK-014) PASS. Falta ejecución Android completa (CP-15 en Android, CP-12/CP-MOV-08 teclado, CP-MOV-06 TalkBack, CP-MOV-09 recorrido) y revisión humana de evidencias. Android Studio, AVD `emulator-5554` y Expo Go operativos (CHK-010 a CHK-018). Esta sesión API no expone Context7; consultar ESLint/Prettier y el manejo específico de retorno Android en la sesión OMP antes de añadir configuración/versiones.
+**G1:** `VALIDACIÓN PARCIAL`: `npx jest` 5 suites / 14 pruebas PASS (2026-11-01); `npm run typecheck`, `npx expo install --check` y `npx expo export --platform android` PASS; `npm ci` limpio (CHK-013) y ESLint/Prettier (CHK-014) PASS. CP-15 observado en AVD con identificador inexistente (CHK-019). Falta ejecución Android completa (CP-12/CP-MOV-08 teclado, CP-MOV-06 TalkBack, CP-MOV-09 recorrido) y revisión humana de evidencias. Android Studio, AVD `emulator-5554` y Expo Go operativos (CHK-010 a CHK-019). Esta sesión API no expone Context7; consultar ESLint/Prettier y el manejo específico de retorno Android en la sesión OMP antes de añadir configuración/versiones.
 
 **No declarar:** compilación, pruebas aprobadas, evidencias visuales obtenidas, commits realizados o funcionalidades construidas sin ejecución comprobable. El punto de continuación es el checkpoint más reciente de [bitácora](./docs/05-BITACORA.md).

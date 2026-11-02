@@ -67,7 +67,7 @@ La documentación se mantiene en Markdown con **rutas relativas**. Esta es la es
 |---|---|
 | [AGENTS.md](./AGENTS.md) | Contrato para agentes: autonomía, Context7, SOLID, anti-drift, Git, recuperación y gates. |
 | [Requisitos y rúbrica](./docs/01-REQUISITOS-RUBRICA.md) | Alcance funcional, criterios de aceptación y trazabilidad académica. |
-| [Decisiones y arquitectura](./docs/02-DECISIONES-ARQUITECTURA.md) | Stack, patrones, arquitectura y P-01 aprobada; versiones reales por verificar. |
+| [Decisiones y arquitectura](./docs/02-DECISIONES-ARQUITECTURA.md) | Stack, patrones, arquitectura y P-01 aprobada; versiones verificadas con `npm ci` y `expo install --check` (CHK-013). |
 | [Diseño UX/UI](./docs/03-DISENO-UX-UI.md) | Pantallas, navegación, identidad visual, accesibilidad y comportamientos. |
 | [Plan de pruebas](./docs/04-PLAN-PRUEBAS.md) | Casos de prueba, controles, evidencias y condiciones de cierre. |
 | [Bitácora](./docs/05-BITACORA.md) | Checkpoints, estado comprobado, incidencias y transferencia entre agentes. |
@@ -97,7 +97,7 @@ La estrategia aprobada es **B: calidad equilibrada y verificable**, con comproba
 - Resultados auténticos y estado de avance: [Bitácora](./docs/05-BITACORA.md).
 - Gobernanza operativa y **Definition of Done**: [AGENTS.md](./AGENTS.md).
 
-**Resultados actuales:** clean `npm ci`, `npm test` (5 suites / 14 en CHK-018; 4 / 12 en CHK-013), TypeScript y `npx expo install --check` PASS (CHK-013). Jest CP-15 (`EditTaskRoute.test.tsx`) y CP-09 (`tasks-reducer.test.ts`) PASS (CHK-018, 2 suites / 7 pruebas). Android: CP-01 (CHK-011) y CP-13 (CHK-011, CHK-016) observados; CP-02 a CP-08 observados (CHK-010); CP-03, CP-11, CP-13 y CP-16 PASS observados (CHK-016); CP-UX-01 (contadores 100/500), CP-UX-02 (flecha Atrás), CP-UX-03 y CP-UX-05 PASS parcial; CP-UX-04 PASS (CHK-017); CP-MOV-02 con fuente 130 % observado. CP-12 NO VERIFICABLE en emulador. Pendientes: CP-15 en Android, TalkBack, teclado (CP-MOV-08/CP-12), recorrido humano y revisión humana de EV-12/13/14.
+**Resultados actuales:** clean `npm ci`, `npm test` (5 suites / 14 en CHK-018 y CHK-020; 4 / 12 en CHK-013), TypeScript y `npx expo install --check` PASS (CHK-013). Jest CP-15 (`EditTaskRoute.test.tsx`) y CP-09 (`tasks-reducer.test.ts`) PASS (CHK-018, 2 suites / 7 pruebas). Android: CP-01 (CHK-011) y CP-13 (CHK-011, CHK-016) observados; CP-02 a CP-08 observados (CHK-010); CP-03, CP-11, CP-13 y CP-16 PASS observados (CHK-016); CP-15 con identificador inexistente observado en AVD (CHK-019); CP-UX-01 (contadores 100/500) PASS (CHK-017); CP-UX-02 en «Editar tarea» PASS parcial: Atrás con cambios abre diálogo, «Descartar cambios» vuelve sin cambios (CHK-017); «Seguir editando» y las acciones desde Cancelar no registradas; CP-UX-03 y CP-UX-05 (toast al agregar) PASS parcial (CHK-017, CHK-019); CP-UX-04 PASS (CHK-017); CP-MOV-02 con fuente 130 % observado. CP-12 NO VERIFICABLE en emulador. Pendientes: TalkBack, teclado (CP-MOV-08/CP-12), recorrido humano y revisión humana de EV-12/13/14.
 
 ### Matriz de la evaluación (100 puntos)
 
@@ -151,12 +151,12 @@ La entrega contemplará, conforme a las instrucciones finales del profesor:
 ## 10. Estado actual y siguiente decisión
 
 - **Documentación:** siete Markdown en la estructura prevista; `.omp/mcp.json` configura Context7.
-- **Git local:** rama `chore/mobile-bootstrap`; 3 commits locales (último `db2d420`); sin remoto. Hay cambios sin commit en `docs/`, `src/` y archivos sin seguimiento (`git status --short`).
+- **Git local:** rama `chore/mobile-bootstrap`; 4 commits locales (último `a461246`); sin remoto configurado. Hay cambios sin commit en `AGENTS.md`, `README.md`, `docs/`, `src/` y un archivo sin seguimiento (`git status --short`).
 - **Context7:** no está disponible en este harness (`CONTEXT7_NO_DISPONIBLE`). El usuario autorizó usar fuentes oficiales para resolver el peer conflict; no se afirma uso de Context7.
 - **Aplicación:** scaffold y CRUD, filtros, formulario, validación y estados vacíos implementados; tareas solo en memoria.
-- **Decisiones funcionales:** P-01/P-UX aprobadas; SDK 58/Expo Go, Node 24.19 y npm 11.17 seleccionados. G0 aprobado; G1 en validación parcial (CHK-014, CHK-018).
-- **Android:** AVD `emulator-5554` (Android 16 / API 36) con Expo Go; pruebas parciales en CHK-010 a CHK-018. `font_scale` en 1.0. ADB solo por ruta completa (no está en PATH).
+- **Decisiones funcionales:** P-01/P-UX aprobadas; SDK 58/Expo Go, Node 24.19 y npm 11.17 seleccionados. G0 aprobado; G1 en validación parcial (CHK-014, CHK-018, CHK-019, CHK-020).
+- **Android:** AVD `emulator-5554` (Android 16 / API 36) con Expo Go; pruebas parciales en CHK-010 a CHK-019. `font_scale` en 1.0. ADB solo por ruta completa (no está en PATH).
 - **Gates:** G0 APROBADO; G1 en validación parcial; G2–G4 no aprobados.
-- **Siguiente paso:** CP-15 en Android (deep link con recarga de Expo Go); TalkBack (CP-MOV-06) y recorrido humano (CP-MOV-09); teclado (CP-MOV-08/CP-12) con teclado físico o AVD con teclado software; revisión humana de EV-12/13/14 y capturas CP-UX. No modificar otras versiones sin verificación oficial.
+- **Siguiente paso:** TalkBack (CP-MOV-06) y recorrido humano (CP-MOV-09); teclado (CP-MOV-08/CP-12) con teclado físico o AVD con teclado software; revisión humana de EV-12/13/14 y capturas CP-UX; CP-UX-02 desde «Seguir editando» y desde Cancelar (con y sin cambios). No modificar otras versiones sin verificación oficial.
 
 El estado más reciente y sus evidencias deben consultarse siempre en [Bitácora](./docs/05-BITACORA.md). No asumir que este resumen está actualizado si existe un checkpoint posterior.
