@@ -30,7 +30,7 @@ El [README](../README.md) describe el proyecto Expo real; su estado de validaci�
 | Evidencias visuales B híbridas | **APROBADAS**; obtención parcial | Capturas Android reales por agente si dispone de acceso; si no, captura manual; revisión humana obligatoria. EV-12/13/14 y capturas CP-UX obtenidas desde el AVD (CHK-010 a CHK-017); revisión humana pendiente. |
 | Documentos `01` a `04` | **CONSOLIDADOS** | Decisiones cerradas; G0 requiere revisión y autorización dentro del repositorio real. |
 | `AGENTS.md` | **CONSOLIDADO PARA HARNESS EXTERNO** | Aún debe incorporarse y verificarse en el repositorio real. |
-| Este archivo `05-BITACORA.md` | **CONSOLIDADO** | Último checkpoint vigente: `CHK-027`; anteriores históricos. |
+| Este archivo `05-BITACORA.md` | **CONSOLIDADO** | Último checkpoint vigente: `CHK-028`; anteriores históricos. |
 | `README.md` | **CONSOLIDADO** | Instalación validada en CHK-013 (`npm ci`); ejecución Android parcial (CHK-010 a CHK-019). |
 | Proyecto Expo y código móvil | **CREADO** (estado del checkpoint inicial, superado) | Implementación autorizada; registros en CHK-005 a CHK-017. |
 | Pruebas automáticas y Android | **PARCIAL** (estado del checkpoint inicial: NO EJECUTADAS, superado) | Jest 4 suites / 12 PASS (CHK-013; revalidado en CHK-027). CHK-018 registró 5 suites / 14 con `EditTaskRoute.test.tsx`, eliminado en CHK-023 (respaldo en `%TEMP%`): CP-15 sin test unitario versionado. Android parcial (CHK-010 a CHK-026). `format:check` FAIL en 3 archivos de `src/` (CHK-027). |
@@ -533,6 +533,21 @@ No se declara que el código o los comandos de instalación funcionen. Este chec
 | No verificado | Procedencia de capturas de `%TEMP%` (CHK-026). Remoto: solo se verificó `origin` por URL, no acceso de escritura. |
 | Pendientes | Push a `origin` no aprobado. CP-UX-02 caso «sin cambios» sin alerta. CP-12 teclado físico (NO VERIFICABLE en emulador). Revisión humana de EV-12/13/14 y de las 8 capturas copiadas (`04` §4.1). |
 | Siguiente acción | Commit local de documentación y capturas: hash en `git log -1` (no se registra aquí para evitar autorreferencia). Push solo con aprobación explícita. |
+
+### CHK-028 - Revisión humana de capturas, push y decisiones de alcance
+
+| Campo | Valor |
+|---|---|
+| Identificador | `CHK-028` |
+| Objetivo | Registrar la decisión del usuario sobre capturas, push y pendientes de CHK-027. |
+| Entorno/autor | Usuario (revisor humano) y OMP en Windows. |
+| Estado | `VALIDACIÓN PARCIAL` |
+| Autorización | El usuario aprobó el push a `origin` de la reconciliación. |
+| Pruebas ejecutadas | Ninguna nueva en esta sesión. `git push origin chore/mobile-bootstrap`: `c54810b..ea0fa9a`, exit 0. |
+| Revisión humana | El usuario indicó «las capturas están ok». Alcance: capturas de `docs/evidencias/capturas/` citadas en CHK-027 (8 copias de `%TEMP%`). Revisor: usuario. Procedencia original: `NO VERIFICADO`. |
+| Decisiones de alcance | (1) `format:check` FAIL en 3 archivos de `src/`: aceptado por el usuario como pendiente conocido, no corregido; no cuenta como PASS. (2) CP-15: no requiere test unitario versionado. (3) CP-UX-02 caso «sin cambios» sin alerta y CP-12 teclado físico: descartados por el usuario por no ser relevantes; no ejecutados. |
+| Git | Rama `chore/mobile-bootstrap` sincronizada con `origin/chore/mobile-bootstrap` en `ea0fa9a`. Árbol limpio tras el push. |
+| Pendientes | Ninguno obligatorio para esta etapa. Pendiente de otro tipo: `format:check` FAIL, causa no verificada, sin corregir por decisión del usuario. |
 
 ## 6. Protocolo de inicio en el harness externo
 
