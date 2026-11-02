@@ -31,7 +31,7 @@ El [README](../README.md) describe el proyecto Expo real; su estado de validaci�
 | Evidencias visuales B híbridas | **APROBADAS**; obtención parcial | Capturas Android reales por agente si dispone de acceso; si no, captura manual; revisión humana obligatoria. EV-12/13/14 y capturas CP-UX obtenidas desde el AVD (CHK-010 a CHK-017); revisión humana pendiente. |
 | Documentos `01` a `04` | **CONSOLIDADOS** | Decisiones cerradas; G0 requiere revisión y autorización dentro del repositorio real. |
 | `AGENTS.md` | **CONSOLIDADO PARA HARNESS EXTERNO** | Aún debe incorporarse y verificarse en el repositorio real. |
-| Este archivo `05-BITACORA.md` | **CONSOLIDADO** | Último checkpoint vigente: `CHK-021`; anteriores históricos. |
+| Este archivo `05-BITACORA.md` | **CONSOLIDADO** | Último checkpoint vigente: `CHK-022`; anteriores históricos. |
 | `README.md` | **CONSOLIDADO** | Instalación validada en CHK-013 (`npm ci`); ejecución Android parcial (CHK-010 a CHK-019). |
 | Proyecto Expo y código móvil | **CREADO** (estado del checkpoint inicial, superado) | Implementación autorizada; registros en CHK-005 a CHK-017. |
 | Pruebas automáticas y Android | **PARCIAL** (estado del checkpoint inicial: NO EJECUTADAS, superado) | Jest 4 suites / 12 PASS (CHK-013); suite completa `npx jest` 5 suites / 14 PASS (CHK-018); Android parcial (CHK-010 a CHK-019); CP-15 y CP-09 con Jest 2 suites / 7 PASS (CHK-018); CP-15 observado en AVD con identificador inexistente (CHK-019). |
@@ -445,6 +445,21 @@ No se declara que el código o los comandos de instalación funcionen. Este chec
 | Pendientes | **Decisiones tomadas:** (a) las cuatro versiones de `%TEMP%` con contenido distinto no se copian al repositorio; quedan en `%TEMP%` sin asignar. (b) Ninguna copia se renombra hasta que la revisión humana la asigne a un CP/EV; los nombres mixtos (`CP-UX-*`, `cp-ux*`, `cpux*`, `EVA1-todo-*`) se mantienen. **Requieren persona o dispositivo (no decidibles por el agente):** revisión humana de las 46 copias, EV-12/13/14 y CP-UX; TalkBack (CP-MOV-06); recorrido humano (CP-MOV-09); CP-UX-02 desenlace de «Seguir editando»/«Descartar cambios» desde Cancelar. Revisar `src/` antes de cualquier commit de código. |
 | Siguiente acción | TalkBack (CP-MOV-06); recorrido humano (CP-MOV-09); CP-UX-02 desde «Seguir editando» y desde Cancelar. |
 
+### CHK-022 — Registro de revisión humana de capturas
+
+| Campo | Valor |
+|---|---|
+| Identificador | `CHK-022` |
+| Fecha y objetivo | 2026-11-01. Registrar la revisión humana de las capturas de `docs/evidencias/capturas/`. |
+| Entorno/autor | Revisores: Lukas Covarrubias y Sebastian Morales. OMP en Windows; sin AVD ni Expo Go en este checkpoint. |
+| Estado | `VALIDACIÓN PARCIAL` |
+| Git | Rama `chore/mobile-bootstrap`. Commit local de documentación aprobado por los revisores; sin `push`. Hash verificable con `git log -1`. |
+| Archivos y requisitos | `04` §8.2 (matriz y copias de CHK-021). Sin cambios en `src/`. |
+| Revisión humana | Revisores Lukas Covarrubias y Sebastian Morales, 2026-11-01: capturas revisadas correctas. Estado `ACEPTADA` (revisión visual) según su alcance «todas las capturas»: 32 rastreadas y 46 nuevas en `docs/evidencias/capturas/`, incluidas EV-12/13/14 y capturas CP-UX. Procedencia por archivo: `NO VERIFICADO`; dispositivo y versión por captura no verificados. |
+| No incluido | Cuatro homónimos en `%TEMP%` (`CP-MOV-08-teclado-formulario.png`, `CP-MOV-08-teclado-virtual.png`, `CP-UX-05-toast-editar.png`, `CP-UX-05-toast-eliminar.png`): no están en el repositorio y no fueron revisados en este checkpoint. |
+| Pendientes | Decidir sobre los cuatro homónimos. TalkBack (CP-MOV-06); recorrido humano (CP-MOV-09); teclado (CP-MOV-08/CP-12); CP-UX-02 desde «Seguir editando» y desde Cancelar. Cambios en `src/` sin commit. |
+| Siguiente acción | Push solo con aprobación explícita. Pendientes de la tabla «Pendientes». |
+
 ## 6. Protocolo de inicio en el harness externo
 
 El agente externo **no debe interpretar este documento como orden de programar**. En la primera sesión deberá:
@@ -454,7 +469,7 @@ El agente externo **no debe interpretar este documento como orden de programar**
 3. Verificar capacidad real para leer/escribir archivos, ejecutar terminal y Git, utilizar Context7 y probar Android, **interactuar con el dispositivo/emulador y guardar capturas originales**. Si no es posible, declarar `NO DISPONIBLE` o `NO VERIFICADO`.
 4. Comprobar rama, commit, diferencias y archivos sin seguimiento, **si Git está disponible**. No inventar identificadores.
 5. Consultar Context7 cuando la tarea técnica dependa de una biblioteca o versión, o detener esa implementación si la herramienta obligatoria falta.
-6. Contrastar el estado real con el checkpoint más reciente (actualmente `CHK-021`) y los anteriores solo como historial; enumerar bloqueos y solicitar la autorización que falte. No fusionar, publicar ni modificar historial por iniciativa propia.
+6. Contrastar el estado real con el checkpoint más reciente (actualmente `CHK-022`) y los anteriores solo como historial; enumerar bloqueos y solicitar la autorización que falte. No fusionar, publicar ni modificar historial por iniciativa propia.
 
 Se debe evitar asumir características específicas de la aplicación externa: no se ha identificado su proveedor, interfaz, sistema de permisos ni configuración concreta. El nombre de agente usado por el equipo no determina esas capacidades.
 
@@ -477,7 +492,7 @@ Si se necesita reconstruir un estado anterior, **no** usar operaciones destructi
 
 ## 8. Handoff a harness externo — pendiente de ejecución
 
-**Estado vigente:** G0 `APROBADO`; G1 `VALIDACIÓN PARCIAL`. Último checkpoint: `CHK-021` (copia de 46 capturas de `%TEMP%` a `docs/evidencias/capturas/` como `OBTENIDA PENDIENTE DE REVISIÓN`; commit local de documentación sin `push` y sin cambios en `src/`). `CHK-019` registra CP-15 observado en AVD con identificador inexistente, CP-UX-02 desde Cancelar, CP-UX-05 toast al agregar y CP-UX-03 con fuente 130 % observados. Jest: `npx jest` 5 suites / 14 PASS (CHK-021). `CHK-014` configura ESLint 9.39.5 y Prettier 3.9.10 con lint/format PASS según su registro; no re-ejecutados en CHK-021. `CHK-013` mantiene la validación de instalación limpia previa. Context7 no disponible en este harness (`CONTEXT7_NO_DISPONIBLE`); el usuario autorizó fuentes oficiales para resolver el peer conflict.
+**Estado vigente:** G0 `APROBADO`; G1 `VALIDACIÓN PARCIAL`. Último checkpoint: `CHK-022` (revisión humana confirmada por el usuario de las capturas de `docs/evidencias/capturas/`: `ACEPTADA` visual; procedencia `NO VERIFICADO`; nombre del revisor pendiente). Anterior: `CHK-021` (copia de 46 capturas de `%TEMP%` como `OBTENIDA PENDIENTE DE REVISIÓN`; commit local de documentación sin `push` y sin cambios en `src/`). `CHK-019` registra CP-15 observado en AVD con identificador inexistente, CP-UX-02 desde Cancelar, CP-UX-05 toast al agregar y CP-UX-03 con fuente 130 % observados. Jest: `npx jest` 5 suites / 14 PASS (CHK-021). `CHK-014` configura ESLint 9.39.5 y Prettier 3.9.10 con lint/format PASS según su registro; no re-ejecutados en CHK-021. `CHK-013` mantiene la validación de instalación limpia previa. Context7 no disponible en este harness (`CONTEXT7_NO_DISPONIBLE`); el usuario autorizó fuentes oficiales para resolver el peer conflict.
 
 **Secuencia de continuación:**
 
