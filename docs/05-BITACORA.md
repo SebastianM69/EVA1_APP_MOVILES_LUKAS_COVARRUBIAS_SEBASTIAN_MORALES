@@ -31,7 +31,7 @@ El [README](../README.md) describe el proyecto Expo real; su estado de validaci�
 | Evidencias visuales B híbridas | **APROBADAS**; obtención parcial | Capturas Android reales por agente si dispone de acceso; si no, captura manual; revisión humana obligatoria. EV-12/13/14 y capturas CP-UX obtenidas desde el AVD (CHK-010 a CHK-017); revisión humana pendiente. |
 | Documentos `01` a `04` | **CONSOLIDADOS** | Decisiones cerradas; G0 requiere revisión y autorización dentro del repositorio real. |
 | `AGENTS.md` | **CONSOLIDADO PARA HARNESS EXTERNO** | Aún debe incorporarse y verificarse en el repositorio real. |
-| Este archivo `05-BITACORA.md` | **CONSOLIDADO** | Último checkpoint vigente: `CHK-025`; anteriores históricos. |
+| Este archivo `05-BITACORA.md` | **CONSOLIDADO** | Último checkpoint vigente: `CHK-026`; anteriores históricos. |
 | `README.md` | **CONSOLIDADO** | Instalación validada en CHK-013 (`npm ci`); ejecución Android parcial (CHK-010 a CHK-019). |
 | Proyecto Expo y código móvil | **CREADO** (estado del checkpoint inicial, superado) | Implementación autorizada; registros en CHK-005 a CHK-017. |
 | Pruebas automáticas y Android | **PARCIAL** (estado del checkpoint inicial: NO EJECUTADAS, superado) | Jest 4 suites / 12 PASS (CHK-013); suite completa `npx jest` 5 suites / 14 PASS (CHK-018); Android parcial (CHK-010 a CHK-019); CP-15 y CP-09 con Jest 2 suites / 7 PASS (CHK-018); CP-15 observado en AVD con identificador inexistente (CHK-019). |
@@ -501,6 +501,22 @@ No se declara que el código o los comandos de instalación funcionen. Este chec
 | Restauración | `font_scale` restaurado a 1.0. |
 | Evidencia | Capturas en `%TEMP%` del equipo (`cp-ux03-fuente-200-lista.png`, `cp-ux03-fuente-200-formulario.png`), fuera del repositorio. Procedencia `NO VERIFICADO`; revisión humana pendiente. |
 | Pendientes | TalkBack (CP-MOV-06, CP-UX-05); teclado (CP-MOV-08/CP-12); recorrido humano (CP-MOV-09). |
+
+### CHK-026 - Validaciones del revisor: TalkBack, teclado virtual, recorrido y capturas CP-UX-03
+
+| Campo | Valor |
+|---|---|
+| Identificador | `CHK-026` |
+| Fecha y objetivo | 2026-11-01. Registrar validaciones del revisor pendientes: CP-MOV-06 (TalkBack), CP-MOV-08 (teclado virtual), CP-MOV-09 (recorrido), revisión de capturas CP-UX-03. |
+| Revisores | Lukas Covarrubias y Sebastián Morales. Registro según indicación del revisor en esta sesión. |
+| Entorno | AVD `emulator-5554` (Android 16 / API 36), Expo Go `host.exp.exponent`. TalkBack activado para la prueba y desactivado después (`enabled_accessibility_services` vacío). |
+| Estado | `VALIDACIÓN PARCIAL` (ver «No verificado») |
+| CP-MOV-06 TalkBack | Validado por el revisor: funciona correctamente. Procedencia: observación del revisor, no reproducida por OMP. |
+| CP-MOV-08 teclado virtual | Validado por el revisor en el teclado virtual del emulador: funciona. Contradicción registrada: en CHK-010 el emulador mostró solo la barra Gboard sin teclas. Esta validación del revisor no resuelve esa diferencia por sí sola; se documenta como observación del revisor. |
+| CP-MOV-09 recorrido | Validado por el revisor: todo funciona. Limitación: el caso pide una persona que no conozca la app; el revisor es parte del equipo de desarrollo. |
+| CP-UX-03 capturas `%TEMP%` | `cp-ux03-fuente-200-lista.png` y `cp-ux03-fuente-200-formulario.png` confirmadas por el revisor. Procedencia `NO VERIFICADO` por archivo; fuera del repositorio. |
+| No verificado | CP-12 teclado físico: NO VERIFICABLE en emulador; requiere dispositivo físico. Homónimos de `%TEMP%`: sin asignar (CHK-023). |
+| Siguiente acción | Reconciliar `04-PLAN-PRUEBAS.md` §4.1 y §10 con estos registros (estados obsoletos). Push solo con aprobación. |
 ## 6. Protocolo de inicio en el harness externo
 
 El agente externo **no debe interpretar este documento como orden de programar**. En la primera sesión deberá:
