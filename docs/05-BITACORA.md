@@ -3,7 +3,7 @@
 > **Proyecto:** To-Do List móvil — Desarrollo de Aplicaciones Móviles, Unidad 1  
 > **Versión documental:** 1.0 — cierre P-01/P-UX y checkpoint CHK-004 de consolidación  
 > **Fecha:** 2026-11-01  
-> **Tipo de registro:** planificación documental; **no** ejecución del proyecto móvil  
+> **Tipo de registro:** planificación documental hasta CHK-004; registros de ejecución Android y Jest desde CHK-010 (ver §5). No sustituye la revisión humana de las evidencias.
 > **Entorno futuro previsto:** harness externo con agente denominado por el equipo «GPT-6 Luna» (capacidades todavía no verificadas).
 
 ## 1. Propósito y fuentes
@@ -18,7 +18,7 @@ Fuentes relativas desde esta carpeta:
 - [Plan de pruebas](./04-PLAN-PRUEBAS.md).
 - [Normas obligatorias para agentes](../AGENTS.md).
 
-El [README](../README.md) está consolidado; sus instrucciones de ejecución siguen condicionadas a que exista y se valide un proyecto Expo real.
+El [README](../README.md) describe el proyecto Expo real; su estado de validación se registra en §2 y §5.
 
 ## 2. Estado general en el checkpoint inicial
 
@@ -28,16 +28,16 @@ El [README](../README.md) está consolidado; sus instrucciones de ejecución sig
 | Cinco políticas operativas B | **APROBADAS** | Autonomía, Git, recuperación, gates y checkpoints. |
 | Context7, SOLID y anti-drift | **OBLIGATORIOS** | La disponibilidad de Context7 en el harness externo sigue sin comprobarse. |
 | Límites de título y descripción | **APROBADOS** | Máximos de 100 y 500 caracteres, respectivamente. |
-| Evidencias visuales B híbridas | **APROBADAS / NO EJECUTADAS** | Capturas Android reales por agente si dispone de acceso; si no, captura manual; revisión humana obligatoria. Ninguna EV-01 a EV-10 obtenida. |
+| Evidencias visuales B híbridas | **APROBADAS**; obtención parcial | Capturas Android reales por agente si dispone de acceso; si no, captura manual; revisión humana obligatoria. EV-12/13/14 y capturas CP-UX obtenidas desde el AVD (CHK-010 a CHK-017); revisión humana pendiente. |
 | Documentos `01` a `04` | **CONSOLIDADOS** | Decisiones cerradas; G0 requiere revisión y autorización dentro del repositorio real. |
 | `AGENTS.md` | **CONSOLIDADO PARA HARNESS EXTERNO** | Aún debe incorporarse y verificarse en el repositorio real. |
-| Este archivo `05-BITACORA.md` | **CONSOLIDADO** | Último checkpoint vigente: `CHK-004`; anteriores históricos. |
-| `README.md` | **CONSOLIDADO** | Instalación/ejecución todavía no probadas; requerirá actualización cuando haya aplicación. |
-| Proyecto Expo y código móvil | **NO CREADO** | No se autorizó la implementación. |
-| Pruebas automáticas y Android | **NO EJECUTADAS** | No hay aplicación real para probar. |
-| Git, rama, commit y remoto del trabajo | **NO VERIFICADOS** | El repositorio de destino está fuera del entorno de redacción. |
+| Este archivo `05-BITACORA.md` | **CONSOLIDADO** | Último checkpoint vigente: `CHK-018`; anteriores históricos. |
+| `README.md` | **CONSOLIDADO** | Instalación validada en CHK-013 (`npm ci`); ejecución Android parcial (CHK-010 a CHK-017). |
+| Proyecto Expo y código móvil | **CREADO** (estado del checkpoint inicial, superado) | Implementación autorizada; registros en CHK-005 a CHK-017. |
+| Pruebas automáticas y Android | **PARCIAL** (estado del checkpoint inicial: NO EJECUTADAS, superado) | Jest 4 suites / 12 PASS (CHK-013); suite completa `npx jest` 5 suites / 14 PASS (CHK-018); Android parcial (CHK-010 a CHK-017); CP-15 y CP-09 con Jest 2 suites / 7 PASS (CHK-018). |
+| Git, rama, commit y remoto del trabajo | **VERIFICADO PARCIALMENTE** | Rama `chore/mobile-bootstrap`; `git status` de CHK-018 muestra cambios sin commit. Commits y remoto: ver CHK-005/CHK-007 y CHK-018. |
 | Configuración del harness externo | **NO VERIFICADA** | No asumir terminal, acceso a repositorio, Context7 ni Android. |
-| Gate académico G0 | **PENDIENTE** | Decisiones cerradas; resta importar/validar documentación en Git real y autorización humana expresa de implementación. |
+| Gate académico G0 | **APROBADO** (estado vigente en 04 §10) | Estado del checkpoint inicial: PENDIENTE; superado tras revisión documental y autorización humana. |
 
 ## 3. Decisiones congeladas
 
@@ -85,14 +85,14 @@ El profesor permitió la elección del stack. Se seleccionó React Native por un
 | ENV-03 | Comprobar herramientas y permisos del harness externo: repositorio, Git, terminal, Context7, Android y capturas. | Equipo + agente | Tareas dependientes de capacidades |
 | DOC-01 | Importar los siete Markdown al repositorio Git real, verificar enlaces, integridad, estado de rama y revisar la entrega. | Equipo + agente | G0 |
 | ENV-04 | Confirmar indicación definitiva del profesor sobre Git + ZIP, fecha y plataforma. | Equipo | G4 |
-| EV-ENV | Capturar y revisar evidencias auténticas EV-01 a EV-10 cuando haya app Android; registrar procedencia y rutas relativas. | Equipo + agente | GA-4 / G4 |
+| EV-ENV | Revisar evidencias auténticas EV-01 a EV-14 (faltan EV-06, EV-07 y EV-10; ver plan §8.2); registrar procedencia y rutas relativas. | Equipo + agente | GA-4 / G4 |
 | G0 | Obtener **aprobación humana expresa** para iniciar código, después de comprobar la documentación en el repositorio y el preflight. | Equipo | Inicio de implementación |
 
-Las evidencias visuales siguen `NO OBTENIDA` y ninguna prueba de aplicación está ejecutada.
+Estado inicial (CHK-004): evidencias visuales `NO OBTENIDA`. Estado posterior: ver §5 (CHK-010 a CHK-018).
 
 ## 5. Checkpoints
 
-Los CHK-001 a CHK-003 se conservan como **registros históricos**; las referencias a decisiones pendientes en esos checkpoints reflejan su estado en el momento de emisión. El estado vigente es el del **CHK-004** y la sección 4.
+Los CHK-001 a CHK-003 se conservan como **registros históricos**; las referencias a decisiones pendientes en esos checkpoints reflejan su estado en el momento de emisión. El estado vigente es el del **CHK-018**; la sección 4 conserva las verificaciones de origen.
 
 ### CHK-001 — Cierre de gobernanza y preparación de harness externo
 
@@ -314,6 +314,87 @@ No se declara que el código o los comandos de instalación funcionen. Este chec
 | Riesgos | ESLint 9.x está EOL desde 2026-08-06 según eslint.org; `npm` advierte deprecación. Migrar a ESLint 10 depende de `eslint-config-expo`. Context7 no disponible: se usaron docs oficiales y registro npm. |
 | Pendientes | CP-15, CP-09, CP-MOV-02/06/09, TalkBack y revisión humana de EV. No ejecutado en el repo raíz sin `node_modules`; repetir tras `npm ci`. |
 
+### CHK-015 — TalkBack: verificación parcial de CP-MOV-06 y flujo CRUD con accesibilidad
+
+| Campo | Valor |
+|---|---|
+| Identificador | `CHK-015` |
+| Fecha y objetivo | 2026-11-01. Verificar etiquetas, foco y flujo CRUD con TalkBack activo (CP-MOV-06). Sin cambios de código. |
+| Entorno/autor | OMP en Windows; AVD `emulator-5554`, Android 16 (nivel de API no verificado); TalkBack `com.google.android.marvin.talkback`; ADB por ruta absoluta. |
+| Estado | `VALIDACIÓN PARCIAL` |
+| Git | Rama `chore/mobile-bootstrap`; HEAD `db2d420f6afd69fff675259ec701b49bac77519b`; `git status --short` sin salida al registrar. |
+| Archivos y requisitos | `docs/04-PLAN-PRUEBAS.md` CP-MOV-06; RUB-05. Sin modificaciones a `src/`, `package.json` ni lockfile. |
+| Pruebas ejecutadas | Activación de TalkBack por `settings put secure` y lectura de árbol con `uiautomator dump`. Verificado: lista (tabs «Ver tareas: Todas/Pendientes/Completadas», «Nueva tarea»); formulario («Título», «Descripción», «Guardar tarea», «Cancelar», contadores 0/100 y 0/500); validación con título vacío («Ingresa un título para la tarea», «Ingresa una descripción para la tarea»); creación de tarea «TalkBack CP09»; tarjeta («Cambiar TalkBack CP09 a completada», «Editar tarea TalkBack CP09», «Eliminar tarea TalkBack CP09»); pantalla «Editar tarea» con valores actuales y «Guardar cambios»; diálogo «¿Eliminar “TalkBack CP09”?» con «CANCELAR» / «ELIMINAR». Cancelar conservó la tarea; confirmar la eliminó y la lista volvió a vacía. |
+| Resultado CP-MOV-06 | `NO EJECUTADO` (completo). Observación por árbol de accesibilidad únicamente; **no hay verificación auditiva** de TalkBack. Falta lectura humana. |
+| Evidencia | Ninguna captura nueva. Dumps XML temporales eliminados. |
+| Incidencias | (1) Al tocar aparece diálogo de notificaciones de Android Accessibility Suite; se cerró con «Don't allow» (ruido del sistema, no de la app). (2) Con TalkBack, DPAD_DOWN en la lista se detiene en «Nueva tarea» y no recorre tarjetas. (3) En el diálogo de eliminar, DPAD izquierda/derecha no movió el foco a CANCELAR/ELIMINAR y Atrás no cerró el diálogo con TalkBack activo; cancelar y confirmar sí funcionaron con doble toque. Causa no determinada (TalkBack/emulador o app). Sin clasificar aún como `INC-###`. |
+| Estado de datos | Estado previo a la prueba no verificado. Antes de eliminarla, la lista contenía solo «TalkBack CP09» (contador «1 tarea pendiente»), creada durante esta prueba. Tras eliminarla, la lista quedó vacía («Aún no tienes tareas»). |
+| Limpieza | TalkBack desactivado (`enabled_accessibility_services` = `null`). Archivos `tb*.xml` borrados del escritorio y de `/sdcard`. |
+| Pendientes | Escucha humana de TalkBack (lectura de título, estado, botones y diálogo; orden de foco). Marcar completada/pendiente, guardar edición y filtros con TalkBack. Recorrido humano CP-MOV-09. Revisión humana de EV-12/13/14. Repetir CP-15, CP-09 y CP-MOV-02 según secuencia de CHK-014. Clasificar incidencias (2) y (3). |
+| Siguiente acción | Una persona ejecuta CP-MOV-06 con TalkBack y registra lo escuchado. Reproducir incidencias (2) y (3) sin TalkBack para separar app de lector de pantalla. |
+
+### CHK-016 — Casos automatizables en emulador (CP-09, CP-10, CP-14, CP-UX-02/03/05, CP-MOV-04)
+
+| Campo | Valor |
+|---|---|
+| Fecha y objetivo | 2026-11-01. Ejecutar casos pendientes reproducibles sin persona: CP-09, CP-10, CP-14, CP-UX-02, CP-UX-03, CP-UX-05 (parcial), CP-MOV-04. |
+| Entorno/autor | OMP en Windows; AVD `emulator-5554`; densidad 480 dpi (1 dp = 3 px); captura con `adb screencap`; lectura de UI con `uiautomator dump`. |
+| Estado | `VALIDACIÓN PARCIAL` |
+| Git | Rama `chore/mobile-bootstrap`; HEAD `db2d420`. Sin cambios en `src/`. |
+| Archivos y requisitos | `docs/evidencias/capturas/CP-14-completadas-sin-coincidencias.png`, `docs/evidencias/capturas/CP-UX-02-alerta-descartar.png`. |
+| Pruebas ejecutadas | **CP-14 (PASS, observado):** con una tarea pendiente, filtro «Completadas» muestra «No tienes tareas completadas» y «Puedes cambiar el filtro para ver las demás tareas.»; «Todas» vuelve a mostrar la tarea. **CP-09 (PASS, observado):** Pendiente → Completada (toast «Tarea completada», contador «No tienes tareas pendientes») → Pendiente (toast «Tarea marcada como pendiente», contador «1 tarea pendiente»). No se observó contador discordante. **CP-10 (PASS, observado):** Pendientes y Completadas muestran el subconjunto correcto; Todas muestra la colección. **CP-UX-02 (PASS, observado):** con borrador modificado, Cancelar y Volver (cabecera) y Atrás muestran «Descartar cambios / Tienes cambios sin guardar. ¿Quieres descartarlos?»; «Seguir editando» conserva el texto; «Descartar cambios» deja la tarea sin cambios. **CP-UX-03 (PASS, observado):** «Editar» y «Eliminar» visibles como texto en la tarjeta. **CP-MOV-04 (PASS por medidas):** objetivos táctiles de tarjeta y filtros de 144 px = 48 dp; separación entre «Editar» y «Eliminar» 24 px = 8 dp. |
+| Resultado | CP-14, CP-09, CP-10, CP-UX-02, CP-UX-03 y CP-MOV-04 observados en emulador. Medidas de tamaño vía bounds, no tacto físico. |
+| Incidencias | (1) Con borrador modificado, el primer Atrás no mostró el diálogo y el segundo sí; no se confirmó que el primero cerrara el teclado (no se observó teclado en el dump). Causa no determinada. (2) CP-UX-05 parcial: toasts de agregar, completar y marcar pendiente observados; los de **editar** y **eliminar** no se capturaron en el dump (no verificados). (3) CP-MOV-08/CP-12 **NO VERIFICADO**: al tocar «Descripción» el foco entró al campo pero el teclado virtual no apareció en el dump ni en captura (`CP-MOV-08-teclado-virtual.png`, fuera del repo). Ajuste `show_ime_with_hard_keyboard` probado y revertido. |
+| Evidencia | `CP-14-completadas-sin-coincidencias.png` (filtro Completadas sin coincidencias); `CP-UX-02-alerta-descartar.png` (diálogo al cancelar con borrador). Pendiente revisión humana. |
+| Datos de prueba | Tarea «CP14prueba» creada, editada a «CP14pruebaEdit» y eliminada al final; lista vacía al cerrar la prueba. |
+| Pendientes | CP-15 y CP-09: el plan (`04-PLAN-PRUEBAS.md` §8, línea «Siguiente etapa») los marca verificados el 2026-11-01, pero no hay capturas de CP-15 en `docs/evidencias/capturas/` y CHK-014/015 los dejan pendientes. Resolver contradicción (CP-09 ahora re-observado; CP-15 no re-ejecutado en esta sesión). CP-UX-04 (filtro inicial «Todas» tras relanzar), CP-UX-01 (límites 100/500 y contadores), CP-UX-05 (toasts de editar/eliminar), CP-12 y CP-MOV-08 (teclado con formulario), CP-03, CP-16, CP-MOV-07 (ya cubierto por CP-UX-02 en Atrás), CP-11, CP-13. TalkBack, CP-MOV-09 y revisión humana de EV-12/13/14 siguen pendientes. |
+| Siguiente acción | Ejecutar CP-MOV-08/CP-12 con teclado abierto y CP-UX-01 en formulario; luego decidir si se revisa CP-15 y se corrige el texto del plan. |
+| Resultados adicionales (2026-11-01) | **CP-03 (PASS, observado):** título vacío muestra «Ingresa un título para la tarea»; descripción con solo espacios muestra «Ingresa una descripción para la tarea» y no crea tarea. **CP-16 (PASS, observado):** tras corregir la descripción inválida, la tarea se guarda una vez («Correcta2»). **CP-11 (PASS, observado):** Nueva tarea -> Volver -> Nueva tarea -> Cancelar conserva la lista («Val», «Val2»). **CP-13 (PASS, observado):** T1, T2 y T3 creadas; T1 editada a «T1cp13editada»; T2 completada; T3 eliminada tras diálogo «¿Eliminar “T3cp13”?»; T1, T2 y Val/Val2 conservan títulos y estado. **CP-UX-01 y CP-UX-05: sin verificación completa en esta bitácora.** En los volcados de UI tras editar y eliminar no apareció texto de toast («Cambios guardados» / «Tarea eliminada» no observados); la captura `CP-UX-05-toast-editar` no se archivó y `CP-UX-05-toast-eliminar` se descartó por no mostrar el toast. Reabrir CP-UX-05 con captura inmediata tras la acción. |
+|  Incidencias adicionales | Sesión interrumpida por cuelgue de kernel durante CP-13; se retomó con UI leída por `uiautomator`. La app no tiene persistencia: los datos de prueba («Val», «Val2», «T1cp13editada», «T2cp13») existen solo en memoria mientras no se recargue Expo Go; recargar o reiniciar la app los borra. Sin cambios en `src/`. |
+| CP-MOV-08 / CP-12 (teclado con formulario): NO VERIFICABLE EN EMULADOR (2026-11-01). Al enfocar «Título», `dumpsys input_method` reporta `mInputShown=true`, pero el emulador solo muestra la barra de Gboard (micrófono, borrar, tabulador, emoji, menú) sin teclas; el usuario lo confirmó en pantalla. Intentos: AVD `hw.keyboard=yes` (sin teclado), cambio a `hw.keyboard=no` (revertido; `config.ini` restaurado a `yes`), `show_ime_with_hard_keyboard=1` (sin teclas; revertido a `0`). Capturas: `CP-MOV-08-foco-titulo.png`, `CP-MOV-08-teclado-formulario.png`, `CP-MOV-08-teclado-virtual.png` (solo referencia, muestran la barra). Requiere prueba con teclado en dispositivo físico o AVD con teclado software. Sin cambios en `src/`. |
+| CP-UX-05 (toast al editar, 2026-11-01): PASS observado. Tras editar «EDITAR 1» a «EDITAR 1, ENTRADA EDITADA» / «PRUEBA, EDITADA» y tocar «Guardar cambios», aparece el toast verde «Cambios guardados» sobre la lista; la tarea muestra el título editado. Captura: `CP-UX-05-toast-editar.png` (foto de pantalla aportada por el usuario). Pendiente: toast al eliminar («BORRAR 1»). Datos de prueba en memoria; no persisten. |
+| CP-UX-05 (toast al eliminar, 2026-11-01): PASS observado. Tap en «Eliminar» de «BORRAR 1» abre diálogo «¿Eliminar “BORRAR 1”?» con «Esta acción no se puede deshacer.» y botones CANCELAR / ELIMINAR. Tras confirmar, aparece el toast verde «Tarea eliminada» y la lista queda con «EDITAR 1, ENTRADA EDITADA» («1 tarea pendiente»). Capturas: `CP-UX-05-dialogo-eliminar.png`, `CP-UX-05-toast-eliminar.png` (fotos de pantalla aportadas por el usuario). Datos de prueba en memoria; no persisten. |
+
+### CHK-017 — Atrás con borrador modificado en «Nueva tarea» (instancia 127.0.0.1:8081)
+
+| Campo | Valor |
+|---|---|
+| Identificador | `CHK-017` |
+| Fecha y objetivo | 2026-11-01, ~22:10. Reproducir el comportamiento de Atrás con borrador modificado (CP-UX-02/CP-UX-05) en la instancia que queda activa. |
+| Entorno/autor | OMP en Windows; AVD `emulator-5554`; Expo Go `host.exp.exponent` 58.0.5; proyecto `eva1-todolist`; Metro único (pid 21640). |
+| Instancia conservada | `exp://127.0.0.1:8081`, `ExperienceActivity` tarea 58. Elegida por el usuario en pantalla. |
+| Instancia cerrada | `exp://192.168.1.86:8081`, tarea 60. Cerrada con `am stack remove 60` por decisión del usuario. **No se probó Atrás en esta instancia antes de cerrarla.** |
+| Estado | `VALIDACIÓN PARCIAL` |
+| Git | Rama `chore/mobile-bootstrap`; sin cambios en `src/`, `package.json` ni lockfile en esta sesión. |
+| Pruebas ejecutadas | Formulario «Nueva tarea»; escritura «PRUEBAATRAS» en «Título». **Atrás 1:** sin diálogo observado en el árbol de accesibilidad. **Atrás 2:** diálogo «Descartar cambios» con «Tienes cambios sin guardar. ¿Quieres descartarlos?», botones «SEGUIR EDITANDO» / «DESCARTAR CAMBIOS». Tap en «DESCARTAR CAMBIOS»: vuelve a la lista («Mis tareas», «Nueva tarea»). |
+| Resultado | CP-UX-02 (Atrás muestra diálogo de descarte y descarta) observado. La primera pulsación de Atrás no produjo efecto visible; mismo patrón que incidencia (1) de CHK-016. |
+| Incidencias | Primer Atrás sin efecto observable en `ExperienceActivity` tarea 58. Causa no determinada. No se distingue app de Expo Go ni de la instancia. Una corrección previa de hipótesis: la diferencia entre instancias no quedó demostrada; el comportamiento aparece en la instancia conservada. |
+| Evidencia | `atras-observado-1.png` y `atras-observado-2.png` en %TEMP% del equipo (fuera del repo, no versionadas). |
+| Datos de prueba | Borrador «PRUEBAATRAS» descartado; ninguna tarea creada. Datos previos en memoria; no persisten al recargar. |
+| Limpieza | Dumps `/sdcard/*.xml` de esta prueba eliminados. |
+| Pendientes | Repetir Atrás sobre «Editar tarea» con borrador modificado en la instancia 127.0.0.1 para comparar con el caso original. Reproducir en la instancia 192.168.1.86 sólo si el usuario la reabre. |
+| Siguiente acción | Usuario confirma si la instancia 127.0.0.1 se mantiene para CP-UX-02 y CP-UX-05 sobre «Editar tarea». |
+...logo. Atrás 2: diálogo «Descartar cambios» («Tienes cambios sin guardar. ¿Quieres descartarlos?»; «SEGUIR EDITANDO» / «DESCARTAR CAMBIOS»). «DESCARTAR CAMBIOS» vuelve a «Mis tareas» con «EDITAR TAREA» sin cambios. Incidencia: un `input text` previo se envió con el foco fuera de los campos; no alteró ningún campo (título verificado antes de editar). Capturas: `cp-ux02-editar-atras1.png` y `cp-ux02-editar-atras2.png` en %TEMP% del equipo. Dumps `/sdcard` eliminados. |
+...utShown=true`; tras el primer Atrás: `mInputShown=false`, sin diálogo, permanece en «Editar tarea». Por tanto el primer Atrás cierra el teclado virtual y no muestra el diálogo. Confirmado por estado IME, no por captura del teclado. Segundo Atrás: diálogo «Descartar cambios». «DESCARTAR CAMBIOS» vuelve a «Mis tareas» con «EDITAR TAREA» sin cambios. Capturas: `cp-ux01-limite-titulo.png`, `cp-ux02-editar-atras2-limite.png` en %TEMP% del equipo. Dumps `/sdcard` eliminados. |
+...observado):** en «Editar tarea» se escribieron 480 caracteres sobre 32 existentes; contador `500/500` y campo con 500 caracteres. Tope aplicado. Descartado sin guardar: «DESCARTAR CAMBIOS» vuelve a «Mis tareas» con «EDITAR TAREA» y `1 tarea pendiente`. Secuencia de Atrás: primer Atrás sin diálogo (vuelve a permanecer en «Editar tarea»); segundo Atrás muestra «Descartar cambios». Captura: `cp-ux01-limite-descripcion.png` en %TEMP% del equipo. Dumps `/sdcard` eliminados. |
+...tadas» activo y sin tareas completadas («No tienes tareas completadas»), `am force-stop host.exp.exponent` y relanzo con `am start -a VIEW -d exp://127.0.0.1:8081`. Tras la carga, la pestaña activa es «Todas» (resaltada en la captura) y muestra «Aún no tienes tareas». Los datos de prueba desaparecen porque la app no persiste datos, lo esperado. Captura: `cp-ux04-relanzo.png` en %TEMP% del equipo. Esto reinició Expo Go; la instancia activa es ahora la única `127.0.0.1:8081`. |
+
+### CHK-018 — Reconciliación documental y ejecución Jest de CP-15 y CP-09
+
+| Campo | Valor |
+|---|---|
+| Identificador | `CHK-018` |
+| Fecha y objetivo | 2026-11-01. Contrastar `docs/` y `README.md` con la evidencia real y registrar la ejecución Jest de CP-15 y CP-09, pendiente desde CHK-013. |
+| Entorno/autor | OMP en Windows; repositorio `EVA1_AP_MOVILES_LUKAS COVARRUBIAS_SEBASTIAN_MORALES`. |
+| Estado | `VALIDACIÓN PARCIAL` |
+| Pruebas ejecutadas | `npx jest src/features/tasks/components/EditTaskRoute.test.tsx src/features/tasks/model/tasks-reducer.test.ts --verbose`: 2 suites / 7 pruebas PASS (1,72 s). Suite completa `npx jest`: 5 suites / 14 pruebas PASS (1,91 s). |
+| Resultados | CP-15 unitario/componente PASS (`EditTaskRoute.test.tsx`, 2 pruebas). CP-09 unitario PASS (`tasks-reducer.test.ts`). CP-15 en Android sigue pendiente. La discordancia de contador de CHK-011 no se reprodujo en Jest; en Android, CP-09 figura observado en CHK-010. |
+| **Documentación corregida** | `04-PLAN-PRUEBAS.md`: cabecera, §3.1 (estado actual), §4.1 (CP-UX-03 y CP-UX-05 pasan a PASS parcial), §10 (G3 y estado actual) y «Siguiente etapa» (referencia rota «línea 307» eliminada). `05-BITACORA.md`: cabecera (líneas 6, 21), §2 (estados obsoletos sustituidos), §4 (línea de evidencias), §5 y rutas absolutas de CHK-017 reemplazadas por %TEMP%. §8.2 ya lista EV-01 a EV-14 con EV-06, EV-07 y EV-10 sin archivo. |
+| Git | `git status --short`: cambios sin commit en `docs/04-PLAN-PRUEBAS.md`, `docs/05-BITACORA.md`, `src/app/index.tsx`, `src/features/tasks/components/TaskForm.tsx` y `TaskForm.test.tsx`; sin seguimiento `src/features/tasks/components/EditTaskRoute.test.tsx` y capturas en `docs/evidencias/capturas/`. Último commit: `db2d420`. Origen de los cambios en `src/` no verificado en esta fase. |
+| Pendientes | CP-01 (CHK-011) y CP-13 (CHK-011, CHK-016) observados; CP-02 a CP-08 observados (CHK-010); CP-03, CP-11 y CP-16 PASS observados (CHK-016); CP-MOV-02 observado con fuente 130 % (revisión humana pendiente); CP-15 en Android; CP-MOV-06 (TalkBack), CP-MOV-08/CP-12 (teclado; CP-12 NO VERIFICABLE en emulador), CP-MOV-09; CP-UX-03 PASS parcial (falta fuente ampliada); CP-UX-05: toast al agregar no registrado; revisión humana de EV-12/13/14 y capturas CP-UX. |
+| Decisiones pendientes del usuario | (a) Copiar capturas de %TEMP% a `docs/evidencias/capturas/` (no ejecutado: requiere revisión y procedencia). (b) Commit local de la documentación (no ejecutado; sin `push`). |
+| Siguiente acción | Continuar con README y verificación de enlaces relativos; luego decisiones (a) y (b). |
+
 ## 6. Protocolo de inicio en el harness externo
 
 El agente externo **no debe interpretar este documento como orden de programar**. En la primera sesión deberá:
@@ -323,7 +404,7 @@ El agente externo **no debe interpretar este documento como orden de programar**
 3. Verificar capacidad real para leer/escribir archivos, ejecutar terminal y Git, utilizar Context7 y probar Android, **interactuar con el dispositivo/emulador y guardar capturas originales**. Si no es posible, declarar `NO DISPONIBLE` o `NO VERIFICADO`.
 4. Comprobar rama, commit, diferencias y archivos sin seguimiento, **si Git está disponible**. No inventar identificadores.
 5. Consultar Context7 cuando la tarea técnica dependa de una biblioteca o versión, o detener esa implementación si la herramienta obligatoria falta.
-6. Contrastar el estado real con el checkpoint más reciente (actualmente `CHK-013`) y los anteriores solo como historial; enumerar bloqueos y solicitar la autorización que falte. No fusionar, publicar ni modificar historial por iniciativa propia.
+6. Contrastar el estado real con el checkpoint más reciente (actualmente `CHK-018`) y los anteriores solo como historial; enumerar bloqueos y solicitar la autorización que falte. No fusionar, publicar ni modificar historial por iniciativa propia.
 
 Se debe evitar asumir características específicas de la aplicación externa: no se ha identificado su proveedor, interfaz, sistema de permisos ni configuración concreta. El nombre de agente usado por el equipo no determina esas capacidades.
 
@@ -346,11 +427,11 @@ Si se necesita reconstruir un estado anterior, **no** usar operaciones destructi
 
 ## 8. Handoff a harness externo — pendiente de ejecución
 
-**Estado vigente:** G0 `APROBADO`; G1 `VALIDACIÓN PARCIAL`. `CHK-014` configura ESLint 9.39.5 y Prettier 3.9.10; lint, `expo lint`, format, typecheck y Jest PASS en copia temporal con los manifiestos finales. `CHK-013` mantiene la validación de instalación limpia previa. Context7 no está expuesto; el usuario autorizó fuentes oficiales para este fix. El usuario reporta que la app funciona; no se revalidó ni se reseteó el AVD.
+**Estado vigente:** G0 `APROBADO`; G1 `VALIDACIÓN PARCIAL`. `CHK-018` es el último checkpoint: Jest CP-15 y CP-09 PASS (2 suites / 7 pruebas). `CHK-014` configura ESLint 9.39.5 y Prettier 3.9.10; lint, `expo lint`, format, typecheck y Jest PASS en copia temporal con los manifiestos finales. `CHK-013` mantiene la validación de instalación limpia previa. Context7 no está expuesto; el usuario autorizó fuentes oficiales para este fix. El usuario reporta que la app funciona; no se revalidó ni se reseteó el AVD.
 
 **Secuencia de continuación:**
 
-1. Completar CP-15, repetir CP-09 y CP-MOV-02 en el emulador que el usuario reporta funcionando; no resetearlo.
+1. Ejecutar CP-15 en Android (deep link con recarga de Expo Go; borra datos en memoria) en el emulador que el usuario reporta funcionando; no resetearlo. CP-09 ya observado en CHK-010; repetir solo tras cambios en la app. CP-MOV-02 observado con fuente 130 % (revisión humana pendiente).
 2. Completar TalkBack/recorrido humano y revisar EV-12/13/14 antes de cerrar GA-4/G4.
 3. ESLint/Prettier configurados (`CHK-014`). Tras `npm ci` en la raíz, repetir `npm run lint` y `npm run format:check`; no actualizar a ESLint 10 sin verificar `eslint-config-expo`.
 4. Mantener `react-dom@19.3.0` alineado con React `19.3.0`; no usar `--force` ni `--legacy-peer-deps`.

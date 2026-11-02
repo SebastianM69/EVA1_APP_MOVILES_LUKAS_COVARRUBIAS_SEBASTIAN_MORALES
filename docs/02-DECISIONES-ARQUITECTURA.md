@@ -3,7 +3,7 @@
 > **Proyecto:** To-Do List móvil — Desarrollo de Aplicaciones Móviles, Unidad 1  
 > **Versión documental:** 1.0 — consolidación de P-01 y P-UX-01 a P-UX-06  
 > **Fecha:** 2026-11-01  
-> **Estado:** especificación consolidada; P-01/P-UX aprobadas; G0 APROBADO; G1 pendiente de validación
+> **Estado:** especificación consolidada; P-01/P-UX aprobadas; G0 APROBADO; G1 en validación parcial (ver [bitácora](./05-BITACORA.md))
 > **Documento precedente:** [01 — Requisitos, alcance y rúbrica](./01-REQUISITOS-RUBRICA.md)  
 > **Objetivo:** expresar *cómo* se organizará el proyecto, sin implementar todavía código.
 

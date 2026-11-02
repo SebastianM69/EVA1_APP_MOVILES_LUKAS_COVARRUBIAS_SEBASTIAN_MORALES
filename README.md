@@ -38,7 +38,7 @@ Los requisitos funcionales **RF-01 a RF-10** y los criterios **CA-01 a CA-13** s
 | Arquitectura | Modular por funcionalidades | Aprobado |
 | Estado | **Context + `useReducer`** para tareas, `useState` local para formulario/filtro | P-01 aprobada |
 | Calidad | ESLint 9.39.5 (`eslint.config.js`, `eslint-config-expo` 58.0.4) y Prettier 3.9.10 | Configurados; lint, `expo lint` y format PASS en copia limpia. ESLint 9 está EOL desde 2026-08-06 (ver CHK-014). |
-| Pruebas | Jest, `jest-expo`, React Native Testing Library y Android | 4 suites / 12 pruebas PASS; smoke Android parcial. |
+| Pruebas | Jest, `jest-expo`, React Native Testing Library y Android | 5 suites / 14 pruebas PASS (`npx jest`, 2026-11-01; CHK-013 registró 4 / 12); smoke Android parcial. |
 | Herramientas | Node.js, npm, VS Code, Git | Node 24.19.0 / npm 11.17.0; Android Studio, AVD y Expo Go presentes; ADB por ruta directa. |
 
 Se aplicarán los principios **SOLID de manera proporcional**, evitando interfaces y capas artificiales. La arquitectura, los patrones y los pendientes técnicos se explican en [Decisiones y arquitectura](./docs/02-DECISIONES-ARQUITECTURA.md).
@@ -97,7 +97,7 @@ La estrategia aprobada es **B: calidad equilibrada y verificable**, con comproba
 - Resultados auténticos y estado de avance: [Bitácora](./docs/05-BITACORA.md).
 - Gobernanza operativa y **Definition of Done**: [AGENTS.md](./AGENTS.md).
 
-**Resultados actuales:** clean `npm ci`, `npm test` (4 suites / 12), TypeScript y `npx expo install --check` PASS. CP-01/13 observados; CP-MOV-03 y contraste CP-MOV-05 comprobados. CP-MOV-02 se bloqueó temporalmente por `UpdateFailedToLoad`; el usuario reporta que la app volvió a funcionar. EV-12/13/14 pendientes de revisión humana; CP-15 y pruebas humanas pendientes.
+**Resultados actuales:** clean `npm ci`, `npm test` (5 suites / 14 en CHK-018; 4 / 12 en CHK-013), TypeScript y `npx expo install --check` PASS (CHK-013). Jest CP-15 (`EditTaskRoute.test.tsx`) y CP-09 (`tasks-reducer.test.ts`) PASS (CHK-018, 2 suites / 7 pruebas). Android: CP-01 (CHK-011) y CP-13 (CHK-011, CHK-016) observados; CP-02 a CP-08 observados (CHK-010); CP-03, CP-11, CP-13 y CP-16 PASS observados (CHK-016); CP-UX-01 (contadores 100/500), CP-UX-02 (flecha Atrás), CP-UX-03 y CP-UX-05 PASS parcial; CP-UX-04 PASS (CHK-017); CP-MOV-02 con fuente 130 % observado. CP-12 NO VERIFICABLE en emulador. Pendientes: CP-15 en Android, TalkBack, teclado (CP-MOV-08/CP-12), recorrido humano y revisión humana de EV-12/13/14.
 
 ### Matriz de la evaluación (100 puntos)
 
@@ -151,12 +151,12 @@ La entrega contemplará, conforme a las instrucciones finales del profesor:
 ## 10. Estado actual y siguiente decisión
 
 - **Documentación:** siete Markdown en la estructura prevista; `.omp/mcp.json` configura Context7.
-- **Git local:** rama `chore/mobile-bootstrap`; sin commits ni remoto.
+- **Git local:** rama `chore/mobile-bootstrap`; 3 commits locales (último `db2d420`); sin remoto. Hay cambios sin commit en `docs/`, `src/` y archivos sin seguimiento (`git status --short`).
 - **Context7:** no está disponible en este harness (`CONTEXT7_NO_DISPONIBLE`). El usuario autorizó usar fuentes oficiales para resolver el peer conflict; no se afirma uso de Context7.
 - **Aplicación:** scaffold y CRUD, filtros, formulario, validación y estados vacíos implementados; tareas solo en memoria.
-- **Decisiones funcionales:** P-01/P-UX aprobadas; SDK 58/Expo Go, Node 24.19 y npm 11.17 seleccionados. G0 aprobado; G1 parcial, según CHK-013.
-- **Android:** Usuario reporta Expo Go funcionando; no se revalidó ni se reseteó el AVD. `font_scale` quedó en 1.0; ADB solo por ruta directa y variables Android no configuradas.
+- **Decisiones funcionales:** P-01/P-UX aprobadas; SDK 58/Expo Go, Node 24.19 y npm 11.17 seleccionados. G0 aprobado; G1 en validación parcial (CHK-014, CHK-018).
+- **Android:** AVD `emulator-5554` (Android 16 / API 36) con Expo Go; pruebas parciales en CHK-010 a CHK-018. `font_scale` en 1.0. ADB solo por ruta completa (no está en PATH).
 - **Gates:** G0 APROBADO; G1 en validación parcial; G2–G4 no aprobados.
-- **Siguiente paso:** CP-15, repetir CP-09 y CP-MOV-02; completar TalkBack/recorrido humano y revisión EV-12/13/14. No modificar otras versiones sin verificación oficial.
+- **Siguiente paso:** CP-15 en Android (deep link con recarga de Expo Go); TalkBack (CP-MOV-06) y recorrido humano (CP-MOV-09); teclado (CP-MOV-08/CP-12) con teclado físico o AVD con teclado software; revisión humana de EV-12/13/14 y capturas CP-UX. No modificar otras versiones sin verificación oficial.
 
 El estado más reciente y sus evidencias deben consultarse siempre en [Bitácora](./docs/05-BITACORA.md). No asumir que este resumen está actualizado si existe un checkpoint posterior.

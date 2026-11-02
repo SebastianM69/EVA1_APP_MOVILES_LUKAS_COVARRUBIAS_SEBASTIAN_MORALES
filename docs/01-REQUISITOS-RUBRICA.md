@@ -150,7 +150,7 @@ Una funcionalidad se considerará **aceptable** únicamente cuando el resultado 
 | CA-12 | Crear varias tareas y operar sobre una no altera datos ni estados de las restantes. |
 | CA-13 | Las listas vacías por filtro y los errores de formulario muestran textos claros y no confunden al usuario. |
 
-**Casos de prueba especificados:** `CP-01` a `CP-16`, además de casos UX, técnicos, Android y `CP-DOC-01`, se encuentran en [plan de pruebas](./04-PLAN-PRUEBAS.md). Están definidos, **no ejecutados**. Las evidencias EV-01 a EV-10 son previstas y no hay capturas reales todavía.
+**Casos de prueba especificados:** `CP-01` a `CP-16`, además de casos UX, técnicos, Android y `CP-DOC-01`, se encuentran en [plan de pruebas](./04-PLAN-PRUEBAS.md). La ejecución parcial está registrada en el plan (§4.1) y en la [bitácora](./05-BITACORA.md) (CHK-010 a CHK-018). Las capturas están en `docs/evidencias/capturas/`; su revisión humana sigue pendiente.
 
 ## 5. Requisitos no funcionales y restricciones
 

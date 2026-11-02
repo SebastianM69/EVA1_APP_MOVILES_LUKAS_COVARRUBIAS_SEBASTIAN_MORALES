@@ -3,7 +3,7 @@
 > **Proyecto:** To-Do List móvil — Desarrollo de Aplicaciones Móviles, Unidad 1  
 > **Versión documental:** 1.0 — decisiones de estado/UX y evidencias B consolidadas  
 > **Fecha:** 2026-11-01  
-> **Estado:** PLAN CONSOLIDADO; **pruebas aún NO EJECUTADAS**  
+> **Estado:** PLAN CONSOLIDADO; pruebas automatizadas PASS (`npx jest`: 5 suites / 14, 2026-11-01; CHK-013 registró 4 suites / 12); Android parcial (CHK-010 a CHK-017)
 > **Estrategia aprobada:** D-06, alternativa B — calidad equilibrada y verificable; **evidencias visuales B híbridas** (captura real y revisión humana)  
 > **Framework elegido:** React Native + Expo + TypeScript  
 > **Nota:** ningún caso de prueba ni evidencia mencionados en este documento se consideran ejecutados o existentes por el mero hecho de estar planificados.
@@ -64,12 +64,12 @@ Una misma condición puede exigir más de un tipo de comprobación.
 
 - [x] Existe una implementación real inicial conforme a la línea base 01–03.
 - [x] Se seleccionaron versiones compatibles: Expo SDK 58, React Native 0.88.1, React 19.3.0, Expo Router 58.0.29 y paquetes de pruebas versionados en el lockfile.
-- [ ] Se documentó y probó un emulador Android; Android Studio/AVD/`adb` aún no disponibles.
+- [x] Se documentó y probó un emulador Android: AVD `emulator-5554` (Android 16 / API 36) con Expo Go y ADB por ruta completa (CHK-010 a CHK-017).
 - [ ] Se verificó en Android que Context + `useReducer` comparte una colección entre rutas y que formulario/filtro usan `useState` local.
 - [x] Las decisiones P-UX-01 a P-UX-06 están aprobadas como especificación; su comportamiento aún debe probarse.
 - [ ] Se registró el commit evaluado y se dejó disponible un estado inicial conocido.
 
-**Estado actual:** proyecto y lockfile creados; pruebas unitarias/de componente y TypeScript pasan. No se ejecutó `npm ci` desde copia limpia ni se probó Android; no hay capturas.
+**Estado actual:** proyecto y lockfile creados; pruebas unitarias/de componente y TypeScript pasan. `npm ci` limpio PASS (CHK-013). Android probado parcialmente (CHK-010 a CHK-017); capturas en `docs/evidencias/capturas/` y en la carpeta temporal del equipo, no versionadas.
 
 ### 3.2. Datos controlados
 
@@ -87,7 +87,7 @@ Usar tareas ficticias, sin información personal ni credenciales. Ejemplos de en
 
 ## 4. Matriz funcional — casos CP-01 a CP-16
 
-Todos los casos inician en estado **NO EJECUTADO**. El tipo indica la comprobación prevista, **no su ejecución**.
+El estado de ejecución de cada caso se registra en la bitácora (`05`) y, para CP-UX, en §4.1. El tipo indica la comprobación prevista, **no su ejecución**.
 
 | ID | Prueba / pasos esenciales | Resultado esperado | Req. / aceptación | Prioridad | Tipo |
 |---|---|---|---|---|---|
@@ -110,15 +110,15 @@ Todos los casos inician en estado **NO EJECUTADO**. El tipo indica la comprobaci
 
 **Regla de interpretación:** RF-05 incluye máximos **100/500**, contadores, bloqueo de entrada excedida, recorte de espacios exteriores al guardar y validación de negocio. CP-05 prueba la confirmación de descarte con cambios (P-UX-05 aprobada); sin cambios se regresa sin diálogo.
 
-### 4.1. Casos UX — definiciones aprobadas; no ejecutadas
+### 4.1. Casos UX — definiciones aprobadas; ejecución parcial documentada
 
-| ID | Decisión cubierta | Comprobación y resultado esperado | Estado de ejecución inicial |
+| ID | Decisión cubierta | Comprobación y resultado esperado | Estado de ejecución (2026-11-01) |
 |---|---|---|---|
-| **CP-UX-01** | P-UX-04 — campos, límites y contadores. | En la UI no se permite sobrepasar **100/500** caracteres; los contadores reflejan la longitud. La lógica rechaza entradas fuera de rango incluso si se elude el formulario; al guardar, se recortan espacios exteriores y no se aceptan valores vacíos tras el recorte. | **NO EJECUTADO** |
-| **CP-UX-02** | P-UX-05 — cambios sin guardar. | Con borrador modificado, Cancelar, flecha Atrás y retorno Android solicitan confirmación; «Seguir editando» preserva los cambios, «Descartar cambios» no muta la tarea. Sin cambios, no hay alerta. | **NO EJECUTADO** |
-| **CP-UX-03** | P-UX-03 — acciones visibles. | «Editar» y «Eliminar» siempre son accesibles y reconocibles en tarjetas sin gestos ocultos, incluso con texto y fuente ampliados. | **NO EJECUTADO** |
-| **CP-UX-04** | P-UX-02 — filtro inicial. | «Todas» está seleccionado al ingresar por primera vez y contiene todas las tareas de la sesión. | **NO EJECUTADO** |
-| **CP-UX-05** | P-UX-06 — confirmaciones. | Agregar, editar y eliminar muestran un aviso textual breve y no bloqueante, utilizando componentes existentes y sin nueva dependencia; verificar accesibilidad. | **NO EJECUTADO** |
+| **CP-UX-01** | P-UX-04 — campos, límites y contadores. | En la UI no se permite sobrepasar **100/500** caracteres; los contadores reflejan la longitud. La lógica rechaza entradas fuera de rango incluso si se elude el formulario; al guardar, se recortan espacios exteriores y no se aceptan valores vacíos tras el recorte. | **PASS parcial**: contadores 100/500 observados en AVD (CHK-017); rechazo lógico cubierto por `validate-task.test.ts`, no re-ejecutado en esta sesión. |
+| **CP-UX-02** | P-UX-05 — cambios sin guardar. | Con borrador modificado, Cancelar, flecha Atrás y retorno Android solicitan confirmación; «Seguir editando» preserva los cambios, «Descartar cambios» no muta la tarea. Sin cambios, no hay alerta. | **PASS parcial**: flecha Atrás observada en AVD (CHK-017): el primer Atrás cierra el teclado, el segundo muestra el diálogo y «Descartar cambios» restaura la tarea. Cancelar no observado. |
+| **CP-UX-03** | P-UX-03 - acciones visibles. | «Editar» y «Eliminar» siempre son accesibles y reconocibles en tarjetas sin gestos ocultos, incluso con texto y fuente ampliados. | **PASS parcial**: visibles como texto en la tarjeta con fuente 100 % (CHK-016). Prueba con texto y fuente ampliados no registrada. |
+| **CP-UX-04** | P-UX-02 — filtro inicial. | «Todas» está seleccionado al ingresar por primera vez y contiene todas las tareas de la sesión. | **PASS**: observado en AVD tras relanzo de Expo Go (CHK-017): «Todas» seleccionada; datos en memoria desaparecen por diseño. |
+| **CP-UX-05** | P-UX-06 — confirmaciones. | Agregar, editar y eliminar muestran un aviso textual breve y no bloqueante, utilizando componentes existentes y sin nueva dependencia; verificar accesibilidad. | **PASS parcial**: toast «Cambios guardados» (editar) y «Tarea eliminada» (eliminar) observados en AVD (CHK-016); capturas `CP-UX-05-toast-editar.png`, `CP-UX-05-toast-eliminar.png`, `CP-UX-05-dialogo-eliminar.png`. Toast al agregar y accesibilidad no registrados en la bitácora revisada. |
 
 La paleta P-UX-01 se verifica en `CP-MOV-01`, `CP-MOV-02` y `CP-MOV-05`. **Aprobación de la definición no significa aprobación de la prueba.**
 
@@ -195,16 +195,17 @@ Directorio **previsto** desde la raíz del repositorio: `docs/evidencias/captura
 | **EV-03** | Tarea creada visible | CP-02, CP-13 | RF-01/02; RUB-04/05 | `EV-03-tarea-creada.png` |
 | **EV-04** | Errores de campos obligatorios y límites | CP-03, CP-16, CP-UX-01 | RF-05; RUB-04/05 | `EV-04-validacion.png` |
 | **EV-05** | Edición y resultado | CP-04, CP-05 | RF-03, RF-10; RUB-04/05 | `EV-05-antes-edicion.png`, `EV-05-despues-edicion.png` |
-| **EV-06** | Diálogo de confirmación de eliminación | CP-06, CP-07 | RF-04/08; RUB-04/05 | `EV-06-confirmacion-eliminar.png` |
-| **EV-07** | Eliminación selectiva completada | CP-08, CP-13 | RF-04; RUB-04/05 | `EV-07-antes-eliminar.png`, `EV-07-despues-eliminar.png` |
-| **EV-08** | Tarea completada y reabierta | CP-09 | RF-06; RUB-04/05 | `EV-08-pendiente.png`, `EV-08-completada.png` |
-| **EV-09** | Filtros por estado | CP-10, CP-14 | RF-07/09; RUB-04/05 | `EV-09-pendientes.png`, `EV-09-completadas.png` |
-| **EV-10** | Teclado visible y formulario utilizable | CP-12, CP-MOV-08 | RF-02/03; RUB-05 | `EV-10-teclado-android.png` |
+| **EV-06** | Diálogo de confirmación de eliminación | CP-06, CP-07 | RF-04/08; RUB-04/05 | `EV-06-confirmacion-eliminar.png` (archivo no existe) |
+| **EV-07** | Eliminación selectiva completada | CP-08, CP-13 | RF-04; RUB-04/05 | `EV-07-antes-eliminar.png`, `EV-07-despues-eliminar.png` (archivos no existen) |
+| **EV-08** | Tarea completada y reabierta | CP-09 | RF-06; RUB-04/05 | `EV-08-tarea-pendiente.png`, `EV-08-tarea-completada.png` |
+| **EV-09** | Filtros por estado | CP-10, CP-14 | RF-07/09; RUB-04/05 | `EV-09-pendientes-vacio.png`, `EV-09-completadas.png`, `EV-09-completadas-vacio.png` |
+| **EV-10** | Teclado visible y formulario utilizable | CP-12, CP-MOV-08 | RF-02/03; RUB-05 | Sin archivo en `docs/evidencias/capturas/`; intento en emulador sin teclas visibles (CHK-016, CHK-017) |
 | **EV-12** | Tarea de prueba visible con texto simple. | CP-02 | RF-02; RUB-04/05 | `EV-12-tarea-prueba.png` |
 | **EV-13** | Estado de lista al iniciar la revisión. | CP-MOV-01 | RF-01, RF-09; RUB-03/05 | `EV-13-estado-inicial.png` |
 | **EV-14** | Estado de lista vacía en Android. | CP-01, CP-MOV-01 | RF-01, RF-09; RUB-03/05 | `EV-14-estado-vacio.png` |
+| **EV-11** | Descarte de borrador (CP-UX-02) | CP-UX-02 | RF-03; RUB-05 | `EV-11-descartar-borrador.png`, `EV-11-resultado-descartar.png` |
 
-La matriz enumera evidencia prevista. Hay archivos con nombres EV-01–EV-05, EV-08–EV-09 y EV-11–EV-14, pero su procedencia y revisión humana no están reconciliadas; EV-06, EV-07 y EV-10 no se encontraron. EV-12/13/14 se obtuvieron desde el AVD y siguen pendientes de revisión humana. Ninguna captura aislada demuestra por sí sola un cambio de estado completo.
+La matriz enumera evidencia prevista. Existen archivos EV-01 a EV-05, EV-08, EV-09, EV-11 a EV-14; EV-06, EV-07 y EV-10 no existen en `docs/evidencias/capturas/`. Procedencia y revisión humana no reconciliadas; EV-12/13/14 se obtuvieron desde el AVD y siguen pendientes de revisión humana. Ninguna captura aislada demuestra por sí sola un cambio de estado completo.
 
 ### 8.3. Registro de procedencia y revisión humana
 
@@ -260,8 +261,8 @@ Los resultados se consolidarán en la [bitácora](./05-BITACORA.md), manteniendo
 |---|---|---|---|
 | **G0 — Planificación aprobada** | Antes de generar código. | Siete documentos consolidados en el repositorio; decisiones P-01/P-UX aprobadas; autorización humana expresa. | **APROBADO**: documentos verificados y usuario autorizó el inicio. |
 | **G1 — Proyecto reproducible** | Tras crear el proyecto base. | CP-TEC-01, 02, 03, 06, 08 y configuración Git; arranque verificado. | **VALIDACIÓN PARCIAL**: TypeScript, tests, Expo compatibility, Android export, ESLint y Prettier PASS (CHK-014); faltan ejecución Android completa y TalkBack. |
-| **G2 — Funciones esenciales** | Tras implementar CRUD y navegación. | CP-01 a 08, CP-11, 12, 13; sin fallos P0. | **NO EJECUTADO**. |
-| **G3 — Alcance B y UX** | Tras filtros, estados y correcciones. | CP-09, 10, 14–16; CP-MOV aplicables; detalles UX aprobados; pruebas automatizadas. | **NO EJECUTADO**. |
+| **G2 — Funciones esenciales** | Tras implementar CRUD y navegación. | CP-01 a 08, CP-11, 12, 13; sin fallos P0. | **VALIDACIÓN PARCIAL**: CP-01 (CHK-011) y CP-02 a 08 (CHK-010) observados sin fallo; CP-11, CP-13 y CP-03/CP-16 PASS observados (CHK-016); CP-12 NO VERIFICABLE en emulador (CHK-016). |
+| **G3 — Alcance B y UX** | Tras filtros, estados y correcciones. | CP-09, 10, 14–16; CP-MOV aplicables; detalles UX aprobados; pruebas automatizadas. | **VALIDACIÓN PARCIAL**: CP-09, CP-10 y CP-14 observados sin fallo (CHK-010, CHK-016); CP-16 PASS observado (CHK-016); CP-09 unitario PASS (Jest, 2026-11-01); CP-15 unitario PASS, Android pendiente; CP-UX-01, CP-UX-02, CP-UX-03 y CP-UX-05 PASS parcial; CP-UX-04 PASS (CHK-017); CP-MOV-06/09 pendientes; CP-MOV-02 observado con fuente 130 % (revisión humana pendiente). |
 | **G4 — Evaluación y entrega** | Antes de presentar. | CP-DOC-01 aprobado; rúbrica completa; evidencias EV auténticas **revisadas por el equipo**, trazabilidad EV ↔ CP/RF/RUB; informe académico, repositorio, ZIP y coevaluación preparados según instrucciones vigentes. | **NO EJECUTADO**. |
 
 **Regla de cierre:** ningún gate se declara **APROBADO** sin haber realizado sus comprobaciones. Un control crítico en estado FALLIDO o BLOQUEADO impide afirmar que la etapa está cerrada; un control NO EJECUTADO no cuenta como aprobado.
@@ -288,7 +289,7 @@ El enunciado escrito exige una carpeta comprimida en ZIP, capturas y un informe 
 - [x] Incorpora CP-DOC-01 para enlaces relativos, portabilidad y ejecución desde Git.
 - [x] Define estados honestos, incidencias, regresión, gates y responsabilidades.
 - [x] No confunde nombres previstos de evidencias con archivos ya existentes.
-- [x] Incluye estrategia visual B, matriz EV-01 a EV-10, procedencia y revisión humana sobre Android real/emulado.
+- [x] Incluye estrategia visual B, matriz EV-01 a EV-14 (EV-06, EV-07 y EV-10 sin archivo), procedencia y revisión humana sobre Android real/emulado.
 - [ ] Revisar y aprobar este documento por el equipo.
 - [x] P-01 y P-UX-01 a P-UX-06 aprobadas y reflejadas en las pruebas.
 - [ ] Verificar versiones compatibles y dispositivo Android antes de G1.
@@ -302,10 +303,10 @@ El enunciado escrito exige una carpeta comprimida en ZIP, capturas y un informe 
 | **PT-03** | P-01 aprobada: Context + `useReducer` para tareas; `useState` local para formularios y filtros. | Verificar flujos entre rutas mediante CP-04, 11 y 13. | **CERRADO — ARQUITECTURA APROBADA** |
 | **PT-04** | Confirmar modalidad final de repositorio Git / ZIP, profesor e instrucciones de entrega. | Afecta G4. | PENDIENTE VERIFICACIÓN |
 | **PT-05** | Documentos importados, enlaces revisados y autorización expresa para implementación. | Condiciona G0. | **CERRADO — G0 APROBADO** |
-| **PT-06** | Mantener acceso AVD; revisar capturas auténticas con metadatos y aprobación humana antes de G4. | Afecta GA-4, CP-MOV y G4. | EV-12/13/14 pendientes de revisión; app reportada funcionando, sin revalidación. |
+| **PT-06** | Mantener acceso AVD; revisar capturas auténticas con metadatos y aprobación humana antes de G4. | Afecta GA-4, CP-MOV y G4. | EV-12/13/14 pendientes de revisión humana. CP-UX-01/02/04 observados en AVD (CHK-017). |
 
-**Estado actual:** G0 `APROBADO`; G1 `VALIDACIÓN PARCIAL`. Clean `npm ci`, Jest (4 suites / 12), TypeScript y `expo install --check` PASS tras fijar `react-dom@19.3.0`. CP-01/13 ejecutados; CP-MOV-03 observado con texto simple y multilínea; CP-MOV-05 ratios calculados. CP-MOV-02 requiere repetición después del error de carga anterior; CP-09 requiere reproducir una lectura de contador discordante; CP-15 y pruebas humanas pendientes. El usuario reporta la app funcionando; no se revalidó. G2–G4 no aprobados.
+**Estado actual:** G0 `APROBADO`; G1 `VALIDACIÓN PARCIAL`. Clean `npm ci`, `npx jest` (5 suites / 14, 2026-11-01; CHK-013 registró 4 suites / 12), TypeScript y `expo install --check` PASS tras fijar `react-dom@19.3.0` (CHK-013). Re-ejecutado 2026-11-01: `EditTaskRoute.test.tsx` y `tasks-reducer.test.ts`, 2 suites / 7 pruebas PASS (CP-15 y CP-09 a nivel unitario/componente). Android observado: CP-01 (CHK-011), CP-02 a CP-08 y CP-09 (CHK-010), CP-09, CP-10 y CP-14 (CHK-010, CHK-016), CP-03, CP-11, CP-13 y CP-16 (CHK-016), CP-UX-01/02/04 (CHK-017); CP-UX-03 y CP-UX-05 PASS parcial. CP-12 NO VERIFICABLE en emulador. CP-MOV-03 observado; CP-MOV-05 ratios calculados; CP-MOV-02 observado con fuente 130 % (captura en `docs/evidencias/capturas/`; revisión humana pendiente). CP-15 en Android, TalkBack (CP-MOV-06) y recorrido humano (CP-MOV-09) pendientes. G2–G4 no aprobados.
 
 ---
 
-**Siguiente etapa:** CP-15, CP-09 y CP-MOV-02 verificados en emulador `emulator-5554` (2026-11-01): CP-15 muestra «No encontramos esta tarea» y «Volver a mis tareas»; CP-09 cambia Pendiente ↔ Completada con contador actualizado; CP-MOV-02 con fuente 130 % muestra lista y formulario completos sin cortes (`docs/evidencias/capturas/CP-MOV-02-fuente-130-formulario.png`). Pendiente: TalkBack (CP-MOV-06), recorrido humano (CP-MOV-09) y revisión humana de EV-12/13/14.
+**Siguiente etapa:** CP-15 verificado por componente en Jest/RNTL (`src/features/tasks/components/EditTaskRoute.test.tsx`, ejecutado 2026-11-01): muestra «No encontramos esta tarea» y «Volver a mis tareas» sin formulario y sin modificar la lista. Pendiente en emulador `emulator-5554`: deep link con recarga de Expo Go, que borra datos en memoria; ejecutar al cierre de sesión. CP-09 unitario PASS en Jest (2026-11-01); observado en AVD según CHK-010. CP-MOV-02 con fuente 130 % muestra lista y formulario completos (`docs/evidencias/capturas/CP-MOV-02-fuente-130-formulario.png`). Pendiente: TalkBack (CP-MOV-06), recorrido humano (CP-MOV-09) y revisión humana de EV-12/13/14.
