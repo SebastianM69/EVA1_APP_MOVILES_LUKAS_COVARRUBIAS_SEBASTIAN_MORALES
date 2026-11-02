@@ -31,7 +31,7 @@ El [README](../README.md) describe el proyecto Expo real; su estado de validaci�
 | Evidencias visuales B híbridas | **APROBADAS**; obtención parcial | Capturas Android reales por agente si dispone de acceso; si no, captura manual; revisión humana obligatoria. EV-12/13/14 y capturas CP-UX obtenidas desde el AVD (CHK-010 a CHK-017); revisión humana pendiente. |
 | Documentos `01` a `04` | **CONSOLIDADOS** | Decisiones cerradas; G0 requiere revisión y autorización dentro del repositorio real. |
 | `AGENTS.md` | **CONSOLIDADO PARA HARNESS EXTERNO** | Aún debe incorporarse y verificarse en el repositorio real. |
-| Este archivo `05-BITACORA.md` | **CONSOLIDADO** | Último checkpoint vigente: `CHK-024`; anteriores históricos. |
+| Este archivo `05-BITACORA.md` | **CONSOLIDADO** | Último checkpoint vigente: `CHK-025`; anteriores históricos. |
 | `README.md` | **CONSOLIDADO** | Instalación validada en CHK-013 (`npm ci`); ejecución Android parcial (CHK-010 a CHK-019). |
 | Proyecto Expo y código móvil | **CREADO** (estado del checkpoint inicial, superado) | Implementación autorizada; registros en CHK-005 a CHK-017. |
 | Pruebas automáticas y Android | **PARCIAL** (estado del checkpoint inicial: NO EJECUTADAS, superado) | Jest 4 suites / 12 PASS (CHK-013); suite completa `npx jest` 5 suites / 14 PASS (CHK-018); Android parcial (CHK-010 a CHK-019); CP-15 y CP-09 con Jest 2 suites / 7 PASS (CHK-018); CP-15 observado en AVD con identificador inexistente (CHK-019). |
@@ -487,6 +487,20 @@ No se declara que el código o los comandos de instalación funcionen. Este chec
 | No incluido | CP-UX-03 fuente máxima: no ejecutado en este checkpoint. TalkBack, teclado, recorrido humano: sin cambios. |
 | Evidencia | Sin capturas nuevas en el repositorio. Procedencia: `NO VERIFICADO`; revisión humana pendiente. |
 | Siguiente acción | CP-UX-03, TalkBack, teclado y recorrido humano (pendientes de CHK-023). |
+
+### CHK-025 - CP-UX-03 con fuente máxima (2.0)
+
+| Campo | Valor |
+|---|---|
+| Identificador | `CHK-025` |
+| Fecha y objetivo | 2026-11-01. Cerrar CP-UX-03: fuente del sistema en su valor máximo (`font_scale` 2.0). |
+| Entorno/autor | AVD `emulator-5554` (1344x2992), Expo Go `host.exp.exponent`, Metro `127.0.0.1:8081`. Observado por OMP. |
+| Estado | `VALIDACIÓN PARCIAL` |
+| Resultado | Observado con `font_scale` 2.0: lista «Mis tareas» con filtros y «Nueva tarea» visibles; formulario «Nueva tarea» con título, descripción, contadores, «Guardar tarea» (y=2047–2159) y «Cancelar» (y=2237–2349) dentro de la pantalla (alto 2992). Captura visual sin texto recortado. |
+| Incidencia | Al cambiar la fuente la lista quedó vacía: la app se recreó y los datos en memoria se perdieron. Esperado por diseño (tareas solo en memoria). |
+| Restauración | `font_scale` restaurado a 1.0. |
+| Evidencia | Capturas en `%TEMP%` del equipo (`cp-ux03-fuente-200-lista.png`, `cp-ux03-fuente-200-formulario.png`), fuera del repositorio. Procedencia `NO VERIFICADO`; revisión humana pendiente. |
+| Pendientes | TalkBack (CP-MOV-06, CP-UX-05); teclado (CP-MOV-08/CP-12); recorrido humano (CP-MOV-09). |
 ## 6. Protocolo de inicio en el harness externo
 
 El agente externo **no debe interpretar este documento como orden de programar**. En la primera sesión deberá:
