@@ -207,7 +207,7 @@ Directorio **previsto** desde la raíz del repositorio: `docs/evidencias/captura
 
 La matriz enumera evidencia prevista. Existen archivos EV-01 a EV-05, EV-08, EV-09, EV-11 a EV-14; EV-06, EV-07 y EV-10 no existen en `docs/evidencias/capturas/`. Procedencia y revisión humana no reconciliadas; EV-12/13/14 se obtuvieron desde el AVD y siguen pendientes de revisión humana. Ninguna captura aislada demuestra por sí sola un cambio de estado completo.
 
-**Copias sin EV asignado (CHK-021):** 46 PNG copiados desde `%TEMP%` del equipo a esta carpeta, sin renombrar ni asignar EV/CP. Estado: `OBTENIDA PENDIENTE DE REVISIÓN` (no `ACEPTADA`). Origen por archivo: `NO VERIFICADO`. Revisor humano: pendiente. Lista y observaciones en la bitácora (`CHK-021`). Cuatro nombres con contenido distinto al original del repositorio (`CP-MOV-08-teclado-formulario.png`, `CP-MOV-08-teclado-virtual.png`, `CP-UX-05-toast-editar.png`, `CP-UX-05-toast-eliminar.png`) no se copiaron.
+**Copias sin EV asignado (CHK-021):** 46 PNG copiados desde `%TEMP%` del equipo a esta carpeta, sin renombrar ni asignar EV/CP. Estado: `OBTENIDA PENDIENTE DE REVISIÓN` (no `ACEPTADA`). Origen por archivo: `NO VERIFICADO`. Revisor humano: pendiente. Lista y observaciones en `CHK-021`. **Decisión:** no copiar las cuatro versiones de `%TEMP%` que difieren del original del repositorio (`CP-MOV-08-teclado-formulario.png`, `CP-MOV-08-teclado-virtual.png`, `CP-UX-05-toast-editar.png`, `CP-UX-05-toast-eliminar.png`); los originales del repositorio no cambian. **Nomenclatura:** no renombrar ninguna copia hasta que la revisión humana la asigne a un CP/EV.
 
 ### 8.3. Registro de procedencia y revisión humana
 
