@@ -31,7 +31,7 @@ El [README](../README.md) describe el proyecto Expo real; su estado de validaci�
 | Evidencias visuales B híbridas | **APROBADAS**; obtención parcial | Capturas Android reales por agente si dispone de acceso; si no, captura manual; revisión humana obligatoria. EV-12/13/14 y capturas CP-UX obtenidas desde el AVD (CHK-010 a CHK-017); revisión humana pendiente. |
 | Documentos `01` a `04` | **CONSOLIDADOS** | Decisiones cerradas; G0 requiere revisión y autorización dentro del repositorio real. |
 | `AGENTS.md` | **CONSOLIDADO PARA HARNESS EXTERNO** | Aún debe incorporarse y verificarse en el repositorio real. |
-| Este archivo `05-BITACORA.md` | **CONSOLIDADO** | Último checkpoint vigente: `CHK-023`; anteriores históricos. |
+| Este archivo `05-BITACORA.md` | **CONSOLIDADO** | Último checkpoint vigente: `CHK-024`; anteriores históricos. |
 | `README.md` | **CONSOLIDADO** | Instalación validada en CHK-013 (`npm ci`); ejecución Android parcial (CHK-010 a CHK-019). |
 | Proyecto Expo y código móvil | **CREADO** (estado del checkpoint inicial, superado) | Implementación autorizada; registros en CHK-005 a CHK-017. |
 | Pruebas automáticas y Android | **PARCIAL** (estado del checkpoint inicial: NO EJECUTADAS, superado) | Jest 4 suites / 12 PASS (CHK-013); suite completa `npx jest` 5 suites / 14 PASS (CHK-018); Android parcial (CHK-010 a CHK-019); CP-15 y CP-09 con Jest 2 suites / 7 PASS (CHK-018); CP-15 observado en AVD con identificador inexistente (CHK-019). |
@@ -474,6 +474,19 @@ No se declara que el código o los comandos de instalación funcionen. Este chec
 | Pendientes no documentales | TalkBack (CP-MOV-06); recorrido humano (CP-MOV-09); teclado (CP-MOV-08/CP-12, NO VERIFICABLE en emulador); CP-UX-02 desde «Seguir editando» y desde Cancelar; CP-UX-03 fuente máxima; CP-UX-05 TalkBack. |
 | Siguiente acción | Ninguna pendiente en documentación. Retomar pruebas Android pendientes en dispositivo o AVD con teclado y TalkBack. Push solo con aprobación explícita. |
 
+### CHK-024 - CP-UX-02 desde Cancelar y «Seguir editando»
+
+| Campo | Valor |
+|---|---|
+| Identificador | `CHK-024` |
+| Fecha y objetivo | 2026-11-01. Cerrar CP-UX-02 pendiente: botones de «Cancelar» con cambios y «Cancelar» sin cambios. |
+| Entorno/autor | AVD `emulator-5554` (Android 16 / API 36), Expo Go `host.exp.exponent`, Metro `127.0.0.1:8081` activo. Observado por OMP con `uiautomator dump`. |
+| Estado | `VALIDACIÓN PARCIAL` |
+| Resultado | Observado: con título modificado (`TECLADOHWZCANCEL`), «Cancelar» muestra «Descartar cambios» («SEGUIR EDITANDO» / «DESCARTAR CAMBIOS»). «SEGUIR EDITANDO» conserva la pantalla «Editar tarea» y el texto modificado (contador 16/100). Nuevo «Cancelar» muestra el diálogo otra vez. «DESCARTAR CAMBIOS» vuelve a «Mis tareas» con `TECLADOHW` original. |
+| Resultado sin cambios | Observado: «Editar» de `TECLADOHW` seguido de «Cancelar» volvió a «Mis tareas» sin diálogo. Limitación: no se volcó la pantalla intermedia tras abrir «Editar»; el paso se infiere del resultado final. |
+| No incluido | CP-UX-03 fuente máxima: no ejecutado en este checkpoint. TalkBack, teclado, recorrido humano: sin cambios. |
+| Evidencia | Sin capturas nuevas en el repositorio. Procedencia: `NO VERIFICADO`; revisión humana pendiente. |
+| Siguiente acción | CP-UX-03, TalkBack, teclado y recorrido humano (pendientes de CHK-023). |
 ## 6. Protocolo de inicio en el harness externo
 
 El agente externo **no debe interpretar este documento como orden de programar**. En la primera sesión deberá:
