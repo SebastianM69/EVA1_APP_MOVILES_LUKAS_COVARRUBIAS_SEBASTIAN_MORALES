@@ -3,7 +3,7 @@
 Aplicación móvil para organizar tareas: crear, ver, editar, eliminar, marcar como pendiente o completada, y filtrar la lista. Cada tarea tiene título y descripción.
 
 > **Estado:** implementación del alcance de la Unidad 1 en progreso; validación parcial. Resultados detallados en la [Bitácora](./docs/05-BITACORA.md).
-> **Verificado sobre:** commit `aae31d5` de la rama `chore/mobile-bootstrap`, 2026-11-01.
+> **Verificado sobre:** commit `aae31d5` de la rama `chore/mobile-bootstrap`.
 
 ## 1. Stack tecnológico
 
@@ -65,7 +65,7 @@ npm start
 
 ## 5. Calidad y pruebas
 
-Resultados del commit `aae31d5`, ejecutados en un clon limpio:
+Resultados del commit `aae31d5` en clon limpio. Revalidación del árbol de trabajo (CHK-027): `npx jest`, `npm run lint`, `npm run typecheck` y `npm run format:check` re-ejecutados; `npx expo install --check` no re-ejecutado (resultado de la tabla, del registro previo).
 
 | Comprobación | Comando | Resultado |
 |---|---|---|
@@ -73,8 +73,10 @@ Resultados del commit `aae31d5`, ejecutados en un clon limpio:
 | Pruebas unitarias y de componentes | `npm test` | PASS: 4 suites / 12 pruebas |
 | Tipos | `npm run typecheck` | PASS |
 | Lint | `npm run lint` | PASS |
-| Formato | `npm run format:check` | **FAIL**: 22 archivos sin formato Prettier (ver §8) |
+| Formato | `npm run format:check` | **FAIL**: 22 archivos en `aae31d5` (registro previo); **FAIL** en 3 archivos de `src/` en el árbol de trabajo (CHK-027). CHK-014 registró PASS: contradicción sin resolver. |
 | Compatibilidad de versiones Expo | `npx expo install --check` | PASS |
+
+Android (AVD Android 16 / API 36, Expo Go; CHK-017): CP-UX-01, CP-UX-02 y CP-UX-04 PASS observados; CP-UX-03 y CP-UX-05 PASS parcial. Revisión humana pendiente.
 
 ## 6. Estructura del proyecto
 
@@ -111,10 +113,10 @@ Resultados del commit `aae31d5`, ejecutados en un clon limpio:
 ## 8. Limitaciones conocidas
 
 - **Tareas solo en memoria:** se pierden al cerrar o reiniciar la app. Persistencia, cuentas y backend quedan fuera de la Unidad 1.
-- **`npm run format:check` falla** en 22 archivos del commit publicado (`src/`, `package.json`, `app.json`, `tsconfig.json`, `eslint.config.js`, `.prettierrc.json`). No se ha corregido.
-- **Pruebas Android parciales:** no se han completado TalkBack, el recorrido sin instrucciones ni la revisión visual humana de todas las capturas. Estado en la [Bitácora](./docs/05-BITACORA.md).
+- **`npm run format:check` falla** en el commit `aae31d5` (22 archivos según el registro previo) y en el árbol de trabajo actual (CHK-027; 3 archivos de `src/`: `src/app/index.tsx`, `src/features/tasks/components/TaskForm.tsx`, `TaskForm.test.tsx`). No se ha corregido.
+- **Pruebas Android parciales:** CP-12 (teclado físico) NO VERIFICABLE en emulador; capturas EV-12/13/14 pendientes de revisión humana. CP-MOV-06, CP-MOV-08 y CP-MOV-09 registrados por el revisor en CHK-026. Estado en la [Bitácora](./docs/05-BITACORA.md).
 - **iOS:** no verificado.
-- **Estado de la rama publicada:** el commit `aae31d5` no incluye cambios locales posteriores en `src/` (prueba `EditTaskRoute.test.tsx` sin seguimiento). Los conteos de pruebas de esta sección corresponden solo al commit publicado.
+- **Estado del repositorio:** `EditTaskRoute.test.tsx` no existe en el repositorio (eliminado en CHK-023). Los conteos de pruebas corresponden a 4 suites / 12 pruebas.
 
 ## 9. Desarrollo y control de cambios
 

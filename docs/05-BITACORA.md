@@ -2,7 +2,6 @@
 
 > **Proyecto:** To-Do List móvil — Desarrollo de Aplicaciones Móviles, Unidad 1  
 > **Versión documental:** 1.0 — cierre P-01/P-UX y checkpoint CHK-004 de consolidación  
-> **Fecha:** 2026-11-01  
 > **Tipo de registro:** planificación documental hasta CHK-004; registros de ejecución Android y Jest desde CHK-010 (ver §5). No sustituye la revisión humana de las evidencias.
 > **Entorno de ejecución:** OMP en Windows con AVD `emulator-5554` (Android 16 / API 36) y Expo Go (CHK-010 a CHK-019). Harness externo con agente denominado «GPT-6 Luna»: **NO VERIFICADO**.
 
@@ -31,11 +30,11 @@ El [README](../README.md) describe el proyecto Expo real; su estado de validaci�
 | Evidencias visuales B híbridas | **APROBADAS**; obtención parcial | Capturas Android reales por agente si dispone de acceso; si no, captura manual; revisión humana obligatoria. EV-12/13/14 y capturas CP-UX obtenidas desde el AVD (CHK-010 a CHK-017); revisión humana pendiente. |
 | Documentos `01` a `04` | **CONSOLIDADOS** | Decisiones cerradas; G0 requiere revisión y autorización dentro del repositorio real. |
 | `AGENTS.md` | **CONSOLIDADO PARA HARNESS EXTERNO** | Aún debe incorporarse y verificarse en el repositorio real. |
-| Este archivo `05-BITACORA.md` | **CONSOLIDADO** | Último checkpoint vigente: `CHK-026`; anteriores históricos. |
+| Este archivo `05-BITACORA.md` | **CONSOLIDADO** | Último checkpoint vigente: `CHK-027`; anteriores históricos. |
 | `README.md` | **CONSOLIDADO** | Instalación validada en CHK-013 (`npm ci`); ejecución Android parcial (CHK-010 a CHK-019). |
 | Proyecto Expo y código móvil | **CREADO** (estado del checkpoint inicial, superado) | Implementación autorizada; registros en CHK-005 a CHK-017. |
-| Pruebas automáticas y Android | **PARCIAL** (estado del checkpoint inicial: NO EJECUTADAS, superado) | Jest 4 suites / 12 PASS (CHK-013); suite completa `npx jest` 5 suites / 14 PASS (CHK-018); Android parcial (CHK-010 a CHK-019); CP-15 y CP-09 con Jest 2 suites / 7 PASS (CHK-018); CP-15 observado en AVD con identificador inexistente (CHK-019). |
-| Git, rama, commit y remoto del trabajo | **VERIFICADO PARCIALMENTE** | Rama `chore/mobile-bootstrap`; 4 commits locales (último `a461246`); sin remoto (`git remote -v` vacío); cambios sin commit en `AGENTS.md`, `README.md`, `docs/` (01, 04, 05), `src/` y `EditTaskRoute.test.tsx` sin seguimiento (verificado 2026-11-01). |
+| Pruebas automáticas y Android | **PARCIAL** (estado del checkpoint inicial: NO EJECUTADAS, superado) | Jest 4 suites / 12 PASS (CHK-013; revalidado en CHK-027). CHK-018 registró 5 suites / 14 con `EditTaskRoute.test.tsx`, eliminado en CHK-023 (respaldo en `%TEMP%`): CP-15 sin test unitario versionado. Android parcial (CHK-010 a CHK-026). `format:check` FAIL en 3 archivos de `src/` (CHK-027). |
+| Git, rama, commit y remoto del trabajo | **VERIFICADO PARCIALMENTE** | Rama `chore/mobile-bootstrap` con remoto `origin` (`git remote -v`). `origin/chore/mobile-bootstrap` en `c54810b` (CHK-025). `e5361e1` (CHK-026) local, sin publicar. Estado del árbol: ver `git status -sb` y CHK-027. |
 | Configuración del harness externo | **NO VERIFICADA** | No asumir terminal, acceso a repositorio, Context7 ni Android. |
 | Gate académico G0 | **APROBADO** (estado vigente en 04 §10) | Estado del checkpoint inicial: PENDIENTE; superado tras revisión documental y autorización humana. |
 
@@ -517,6 +516,24 @@ No se declara que el código o los comandos de instalación funcionen. Este chec
 | CP-UX-03 capturas `%TEMP%` | `cp-ux03-fuente-200-lista.png` y `cp-ux03-fuente-200-formulario.png` confirmadas por el revisor. Procedencia `NO VERIFICADO` por archivo; fuera del repositorio. |
 | No verificado | CP-12 teclado físico: NO VERIFICABLE en emulador; requiere dispositivo físico. Homónimos de `%TEMP%`: sin asignar (CHK-023). |
 | Siguiente acción | Reconciliar `04-PLAN-PRUEBAS.md` §4.1 y §10 con estos registros (estados obsoletos). Push solo con aprobación. |
+
+### CHK-027 - Reconciliación de 04 y 05 con ejecución real
+
+| Campo | Valor |
+|---|---|
+| Identificador | `CHK-027` |
+| Objetivo | Contrastar `04-PLAN-PRUEBAS.md` y `05-BITACORA.md` con ejecución real y CHK-023 a CHK-026. |
+| Entorno/autor | OMP en Windows; AVD `emulator-5554` (Android 16 / API 36). |
+| Estado | `VALIDACIÓN PARCIAL` |
+| Pruebas ejecutadas | `npx jest`: 4 suites / 12 PASS. `npm run lint`: PASS. `npm run typecheck`: PASS. `npm run format:check`: FAIL en `src/app/index.tsx`, `src/features/tasks/components/TaskForm.tsx` y `TaskForm.test.tsx`. |
+| Android | `font_scale` 1.0 observado (restaurado). Pantalla «Mis tareas» vacía, filtro «Todas». No se re-ejecutó CP-UX-03 con fuente 2.0 en esta sesión; resultado previo en CHK-025. |
+| Git | `git status -sb` tras la revisión: `README.md`, `docs/04-PLAN-PRUEBAS.md` y `docs/05-BITACORA.md` modificados; 8 PNG sin versionar en `docs/evidencias/capturas/`. Rama `chore/mobile-bootstrap` ahead 1 de `origin/chore/mobile-bootstrap` (`c54810b`); `HEAD` `e5361e1`. No se hizo `push` en esta sesión. |
+| Correcciones | `04`: cabecera, G1, G3, §8.2 (copias de CHK-027), §10 «Estado actual» y «Siguiente etapa»: eliminada la referencia a `EditTaskRoute.test.tsx` como prueba vigente; CP-MOV-06/08/09 con validación del revisor (CHK-026). `05`: §2 (líneas de Este archivo, Pruebas y Git) y CHK-027. `README.md`: §5, §8, tabla de Android y estado del repositorio. Capturas: 8 PNG de `%TEMP%` citadas en docs copiadas a `docs/evidencias/capturas/` sin renombrar (`04` §8.2). |
+| Contradicciones abiertas | (1) `format:check`: CHK-014 registró PASS; README registra FAIL en 22 archivos; ejecución de hoy FAIL en 3 archivos. Causa no verificada. (2) CP-15: CHK-018 registró PASS de `EditTaskRoute.test.tsx` (2 pruebas); ese archivo se eliminó en CHK-023; no hay test unitario de CP-15 en el repositorio. (3) CP-MOV-08 (teclado): CHK-010 observó solo barra Gboard sin teclas; CHK-026 registra validación del revisor. Se documentan las dos observaciones; no se resuelve. |
+| No verificado | Procedencia de capturas de `%TEMP%` (CHK-026). Remoto: solo se verificó `origin` por URL, no acceso de escritura. |
+| Pendientes | Push a `origin` no aprobado. CP-UX-02 caso «sin cambios» sin alerta. CP-12 teclado físico (NO VERIFICABLE en emulador). Revisión humana de EV-12/13/14 y de las 8 capturas copiadas (`04` §8.2). |
+| Siguiente acción | Commit local de documentación y capturas: hash en `git log -1` (no se registra aquí para evitar autorreferencia). Push solo con aprobación explícita. |
+
 ## 6. Protocolo de inicio en el harness externo
 
 El agente externo **no debe interpretar este documento como orden de programar**. En la primera sesión deberá:
